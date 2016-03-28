@@ -12,6 +12,10 @@ using System.Diagnostics;
 using AForge.Video;
 using AForge.Video.DirectShow;
 
+using ZXing.Common;
+using ZXing.QrCode;
+using ZXing.QrCode.Internal;
+
 namespace CameraCardGame
 {
     public partial class MainForm : Form
@@ -36,7 +40,7 @@ namespace CameraCardGame
 
             videoPlayer.VideoSource = source;
             videoPlayer.Start();
-
+            
             this.Cursor = Cursors.Default;
         }
 
@@ -70,6 +74,28 @@ namespace CameraCardGame
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             CloseCurrentVideoSource();
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            Bitmap frame = videoPlayer.GetCurrentVideoFrame();
+
+            string decodedData = "";
+
+            try 
+            {
+                ZXing.BarcodeReader reader = new ZXing.BarcodeReader { AutoRotate = true, TryHarder = true };
+                ZXing.Result result = reader.Decode(frame);
+
+                decodedData = result.Text;
+            }
+            catch 
+            {
+                decodedData = "QRCode not found.";
+            }
+            
+
+            messageBox.Text = decodedData;
         }
     }
 }

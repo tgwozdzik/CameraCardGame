@@ -28,11 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.videoPlayer = new AForge.Controls.VideoSourcePlayer();
             this.inputURL = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.showCameraVideo = new System.Windows.Forms.Button();
             this.closeCameraVideo = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.messageBox = new System.Windows.Forms.RichTextBox();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // videoPlayer
@@ -81,11 +85,37 @@
             this.closeCameraVideo.UseVisualStyleBackColor = true;
             this.closeCameraVideo.Click += new System.EventHandler(this.closeCameraVideo_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(366, 12);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(96, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "QRCode message:";
+            // 
+            // messageBox
+            // 
+            this.messageBox.Enabled = false;
+            this.messageBox.Location = new System.Drawing.Point(367, 29);
+            this.messageBox.Name = "messageBox";
+            this.messageBox.Size = new System.Drawing.Size(173, 208);
+            this.messageBox.TabIndex = 6;
+            this.messageBox.Text = "";
+            // 
+            // timer
+            // 
+            this.timer.Enabled = true;
+            this.timer.Interval = 200;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(373, 366);
+            this.ClientSize = new System.Drawing.Size(552, 366);
+            this.Controls.Add(this.messageBox);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.closeCameraVideo);
             this.Controls.Add(this.showCameraVideo);
             this.Controls.Add(this.label1);
@@ -106,6 +136,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button showCameraVideo;
         private System.Windows.Forms.Button closeCameraVideo;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.RichTextBox messageBox;
+        private System.Windows.Forms.Timer timer;
     }
 }
 
