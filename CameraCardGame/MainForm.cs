@@ -20,6 +20,9 @@ namespace CameraCardGame
 {
     public partial class MainForm : Form
     {
+        private bool moving;
+        private Point startLocation;
+
         public MainForm()
         {
             InitializeComponent();
@@ -94,8 +97,34 @@ namespace CameraCardGame
                 decodedData = "QRCode not found.";
             }
             
+            //messageBox.AppendText(decodedData);
+        }
 
-            messageBox.Text = decodedData;
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox6_MouseDown(object sender, MouseEventArgs e)
+        {
+            moving = true;
+            startLocation = e.Location;
+            messageBox.AppendText("mouseDown");
+        }
+
+        private void pictureBox6_MouseUp(object sender, MouseEventArgs e)
+        {
+            moving = false;
+            messageBox.AppendText("mouseUp");
+        }
+
+        private void pictureBox6_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (moving)
+            {
+                pictureBox6.Left += e.Location.X - startLocation.X;
+                pictureBox6.Top += e.Location.Y - startLocation.Y;
+            }
         }
     }
 }
