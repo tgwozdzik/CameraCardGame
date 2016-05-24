@@ -102,28 +102,41 @@ namespace CameraCardGame
 
         private void button1_Click(object sender, EventArgs e)
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            var pictureBox = new PictureBox();
+            pictureBox.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox.Size = new Size(200, 260);
+            pictureBox.Location = new Point(260, 60);
 
+            pictureBox.MouseDown += new MouseEventHandler(PictureBoxMouseDown);
+            pictureBox.MouseUp += new MouseEventHandler(PictureBoxMouseUp);
+            pictureBox.MouseMove += new MouseEventHandler(PictureBoxMouseMove);
+
+            splitContainer1.Panel2.Controls.Add(pictureBox);
         }
 
-        private void pictureBox6_MouseDown(object sender, MouseEventArgs e)
+        private void PictureBoxMouseDown(object sender, MouseEventArgs e)
         {
             moving = true;
             startLocation = e.Location;
-            messageBox.AppendText("mouseDown");
         }
 
-        private void pictureBox6_MouseUp(object sender, MouseEventArgs e)
+        private void PictureBoxMouseUp(object sender, MouseEventArgs e)
         {
             moving = false;
             messageBox.AppendText("mouseUp");
         }
 
-        private void pictureBox6_MouseMove(object sender, MouseEventArgs e)
+        private void PictureBoxMouseMove(object sender, MouseEventArgs e)
         {
+
+            Control control = (Control) sender;
+
             if (moving)
             {
-                pictureBox6.Left += e.Location.X - startLocation.X;
-                pictureBox6.Top += e.Location.Y - startLocation.Y;
+                control.Left += e.Location.X - startLocation.X;
+                control.Top += e.Location.Y - startLocation.Y;
             }
         }
     }
