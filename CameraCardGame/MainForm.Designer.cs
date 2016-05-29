@@ -32,15 +32,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.videoPlayer = new AForge.Controls.VideoSourcePlayer();
             this.inputURL = new System.Windows.Forms.TextBox();
-            this.showCameraVideo = new System.Windows.Forms.Button();
-            this.closeCameraVideo = new System.Windows.Forms.Button();
             this.messageBox = new System.Windows.Forms.RichTextBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.player1CardsLeft = new System.Windows.Forms.Label();
@@ -63,6 +60,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -79,32 +77,13 @@
             // 
             // inputURL
             // 
-            this.inputURL.Location = new System.Drawing.Point(18, 230);
+            this.inputURL.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.inputURL.Font = new System.Drawing.Font("Bell MT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inputURL.Location = new System.Drawing.Point(465, 265);
             this.inputURL.Name = "inputURL";
-            this.inputURL.Size = new System.Drawing.Size(163, 20);
+            this.inputURL.Size = new System.Drawing.Size(255, 31);
             this.inputURL.TabIndex = 1;
-            // 
-            // showCameraVideo
-            // 
-            this.showCameraVideo.Font = new System.Drawing.Font("Bell MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.showCameraVideo.Location = new System.Drawing.Point(75, 251);
-            this.showCameraVideo.Name = "showCameraVideo";
-            this.showCameraVideo.Size = new System.Drawing.Size(104, 29);
-            this.showCameraVideo.TabIndex = 3;
-            this.showCameraVideo.Text = "Connect";
-            this.showCameraVideo.UseVisualStyleBackColor = true;
-            this.showCameraVideo.Click += new System.EventHandler(this.showCameraVideo_Click);
-            // 
-            // closeCameraVideo
-            // 
-            this.closeCameraVideo.Font = new System.Drawing.Font("Bell MT", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.closeCameraVideo.Location = new System.Drawing.Point(18, 251);
-            this.closeCameraVideo.Name = "closeCameraVideo";
-            this.closeCameraVideo.Size = new System.Drawing.Size(51, 21);
-            this.closeCameraVideo.TabIndex = 4;
-            this.closeCameraVideo.Text = "Close";
-            this.closeCameraVideo.UseVisualStyleBackColor = true;
-            this.closeCameraVideo.Click += new System.EventHandler(this.closeCameraVideo_Click);
+            this.inputURL.Visible = false;
             // 
             // messageBox
             // 
@@ -120,7 +99,6 @@
             // 
             // timer
             // 
-            this.timer.Enabled = true;
             this.timer.Interval = 200;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
@@ -169,18 +147,6 @@
             this.label6.Size = new System.Drawing.Size(108, 30);
             this.label6.TabIndex = 14;
             this.label6.Text = "Player 1";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label9.Location = new System.Drawing.Point(53, 209);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(83, 18);
-            this.label9.TabIndex = 15;
-            this.label9.Text = "Video URL";
             // 
             // label1
             // 
@@ -411,6 +377,7 @@
             this.button2.TabIndex = 33;
             this.button2.Text = "Options";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -451,6 +418,19 @@
             this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // label5
+            // 
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Bell MT", 14F);
+            this.label5.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label5.Location = new System.Drawing.Point(525, 240);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(134, 22);
+            this.label5.TabIndex = 36;
+            this.label5.Text = "Video URL";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label5.Visible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -458,6 +438,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1184, 761);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.inputURL);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -477,15 +459,11 @@
             this.Controls.Add(this.player1CardsLeft);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.messageBox);
-            this.Controls.Add(this.closeCameraVideo);
-            this.Controls.Add(this.showCameraVideo);
-            this.Controls.Add(this.inputURL);
             this.Controls.Add(this.videoPlayer);
             this.DoubleBuffered = true;
             this.MaximizeBox = false;
@@ -505,15 +483,12 @@
 
         private AForge.Controls.VideoSourcePlayer videoPlayer;
         private System.Windows.Forms.TextBox inputURL;
-        private System.Windows.Forms.Button showCameraVideo;
-        private System.Windows.Forms.Button closeCameraVideo;
         private System.Windows.Forms.RichTextBox messageBox;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label player1CardsLeft;
@@ -536,6 +511,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label5;
     }
 }
 

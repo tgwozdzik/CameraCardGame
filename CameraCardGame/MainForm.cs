@@ -30,11 +30,17 @@ namespace CameraCardGame
             InitializeComponent();
         }
 
-        private void showCameraVideo_Click(object sender, EventArgs e)
+        public void ControlInvokeRequired(Control control, Action action)
         {
-            MJPEGStream mjpegStream = new MJPEGStream("http://" + inputURL.Text + "/mjpegfeed?640x480");
-
-            OpenVideoSource(mjpegStream);
+            if (control.InvokeRequired) 
+            {
+                control.BeginInvoke(new MethodInvoker(delegate { action(); }));
+ 
+            }
+            else
+            {
+                action();
+            }
         }
 
         private void OpenVideoSource(IVideoSource source)
@@ -44,15 +50,38 @@ namespace CameraCardGame
             CloseCurrentVideoSource();
 
             videoPlayer.VideoSource = source;
+
+            source.VideoSourceError += new VideoSourceErrorEventHandler(videoSourceError);
             videoPlayer.Start();
-            
+            timer.Start();
+
             this.Cursor = Cursors.Default;
         }
 
+        private void videoSourceErrorHandler()
+        {
+            CloseCurrentVideoSource();
+
+            messageBox.SelectionColor = Color.Red;
+            messageBox.AppendText("Cannot connect to video source!\n");
+            messageBox.SelectionColor = messageBox.ForeColor;
+
+            if (button2.Text != "Options")
+            {
+                button2.Text = "Connect";
+            }
+        }
+
+        private void videoSourceError(object sender, VideoSourceErrorEventArgs reason)
+        {
+            ControlInvokeRequired(videoPlayer, videoSourceErrorHandler);
+        }
+        
         private void CloseCurrentVideoSource()
         {
             if (videoPlayer.VideoSource != null)
             {
+                timer.Stop();
                 videoPlayer.SignalToStop();
 
                 for (int i = 0; i < 30; i++)
@@ -71,11 +100,6 @@ namespace CameraCardGame
             }
         }
 
-        private void closeCameraVideo_Click(object sender, EventArgs e)
-        {
-            CloseCurrentVideoSource();
-        }
-
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             CloseCurrentVideoSource();
@@ -85,19 +109,12 @@ namespace CameraCardGame
         {
             Bitmap frame = videoPlayer.GetCurrentVideoFrame();
 
-            string decodedData = "";
-
             try 
             {
                 ZXing.BarcodeReader reader = new ZXing.BarcodeReader { AutoRotate = true, TryHarder = true };
                 ZXing.Result result = reader.Decode(frame);
-
-                decodedData = result.Text;
             }
-            catch 
-            {
-                decodedData = "QRCode not found.";
-            }
+            catch { }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -285,15 +302,26 @@ namespace CameraCardGame
 
         private void button3_Click(object sender, EventArgs e)
         {
-            CloseCurrentVideoSource();
-
-            if (System.Windows.Forms.Application.MessageLoop)
+            if (button3.Text == "Quit")
             {
-                System.Windows.Forms.Application.Exit();
+                CloseCurrentVideoSource();
+
+                if (System.Windows.Forms.Application.MessageLoop)
+                {
+                    System.Windows.Forms.Application.Exit();
+                }
+                else
+                {
+                    System.Environment.Exit(1);
+                }
             }
             else
             {
-                System.Environment.Exit(1);
+                startGame.Visible = true;
+                inputURL.Visible = false;
+                label5.Visible = false;
+                button2.Text = "Options";
+                button3.Text = "Quit";
             }
         }
 
@@ -354,6 +382,58 @@ namespace CameraCardGame
                 }
 
                 messageBox.AppendText("Game paused!\n");
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (button2.Text == "Options")
+            {
+                startGame.Visible = false;
+                inputURL.Visible = true;
+                label5.Visible = true;
+                if (videoPlayer.VideoSource == null)
+                {
+                    button2.Text = "Connect";
+                }
+                else
+                {
+                    button2.Text = "Disconnect";
+                }
+                button2.Text = "Connect";
+                button3.Text = "Back";
+            }
+            else
+            {
+                if (videoPlayer.VideoSource == null)
+                {
+                    button2.Text = "Disconnect";
+                    MJPEGStream mjpegStream = new MJPEGStream("http://" + inputURL.Text + "/mjpegfeed?640x480");
+                    OpenVideoSource(mjpegStream);
+
+                    //if (OpenVideoSource(mjpegStream))
+                    //{
+                    //    messageBox.SelectionColor = Color.Red;
+                    //    messageBox.AppendText("Cannot connect to video source!\n");
+                    //    messageBox.SelectionColor = messageBox.ForeColor;
+
+                    //    videoPlayer.VideoSource = null;
+
+                    //    return;
+                    //}
+                    //else
+                    //{
+                    //    button2.Text = "Disconnect";
+                    //    messageBox.SelectionColor = Color.Green;
+                    //    messageBox.AppendText("Connected to the video source!\n");
+                    //    messageBox.SelectionColor = messageBox.ForeColor;
+                    //}
+                }
+                else
+                {
+                    button2.Text = "Connect";
+                    CloseCurrentVideoSource();
+                }
             }
         }
     }
