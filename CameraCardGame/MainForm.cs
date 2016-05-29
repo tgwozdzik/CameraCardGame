@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Web.Script.Serialization;
 
 using AForge.Video;
 using AForge.Video.DirectShow;
@@ -15,6 +16,7 @@ using AForge.Video.DirectShow;
 using ZXing.Common;
 using ZXing.QrCode;
 using ZXing.QrCode.Internal;
+using System.Runtime.InteropServices;
 
 namespace CameraCardGame
 {
@@ -24,10 +26,35 @@ namespace CameraCardGame
         private Point startLocation;
 
         private Game game;
+        private String readedQRCode = null;
+
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
+        [DllImportAttribute("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [DllImportAttribute("user32.dll")]
+        public static extern bool ReleaseCapture();
 
         public MainForm()
         {
             InitializeComponent();
+
+            player1card1.Visible = false;
+            player1card2.Visible = false;
+            player1card3.Visible = false;
+            player1card4.Visible = false;
+            player1card5.Visible = false;
+            player1card6.Visible = false;
+            player1card7.Visible = false;
+
+            player2card1.Visible = false;
+            player2card2.Visible = false;
+            player2card3.Visible = false;
+            player2card4.Visible = false;
+            player2card5.Visible = false;
+            player2card6.Visible = false;
+            player2card7.Visible = false;
         }
 
         public void ControlInvokeRequired(Control control, Action action)
@@ -35,7 +62,6 @@ namespace CameraCardGame
             if (control.InvokeRequired) 
             {
                 control.BeginInvoke(new MethodInvoker(delegate { action(); }));
- 
             }
             else
             {
@@ -113,6 +139,8 @@ namespace CameraCardGame
             {
                 ZXing.BarcodeReader reader = new ZXing.BarcodeReader { AutoRotate = true, TryHarder = true };
                 ZXing.Result result = reader.Decode(frame);
+
+                readedQRCode = result.Text;
             }
             catch { }
         }
@@ -135,7 +163,7 @@ namespace CameraCardGame
             if (videoPlayer.VideoSource == null)
             {
                 messageBox.SelectionColor = Color.Red;
-                messageBox.AppendText("Please set up camera source in Options, before starting new game!\n");
+                messageBox.AppendText("Please set up camera source in Options, before starting game!\n");
                 messageBox.SelectionColor = messageBox.ForeColor;
 
                 return;
@@ -148,10 +176,10 @@ namespace CameraCardGame
                 button3.Visible = false;
                 button1.Visible = true;
 
-                Player player1 = new Player(new List<Card>(), 30, 0, 0, 30, 1);
+                Player player1 = new Player(new List<Card>(), 30, 0, 0, 30, 10);
                 Player player2 = new Player(new List<Card>(), 30, 0, 0, 30, 1);
 
-                game = new Game(player1, player2, 1, 1, 15);
+                game = new Game(player1, player2, 1, 1, 120);
 
                 player1Timer.Interval = 500;
                 player2Timer.Interval = 500;
@@ -198,7 +226,7 @@ namespace CameraCardGame
 
         private void PictureBoxMouseMove(object sender, MouseEventArgs e)
         {
-            Control control = (Control) sender;
+            Form control = (Form)sender;
 
             if (moving)
             {
@@ -228,7 +256,7 @@ namespace CameraCardGame
                 }
 
                 messageBox.SelectionColor = Color.Red;
-                messageBox.AppendText("Please set up camera source in Options, before starting new game!\n");
+                messageBox.AppendText("Please set up camera source in Options, before starting game!\n");
                 messageBox.SelectionColor = messageBox.ForeColor;
             }
 
@@ -272,6 +300,7 @@ namespace CameraCardGame
                 game.changeTurn();
                 game.resetTurnTimer();
                 player1Timer.Start();
+                game.player1.vaitingForQRCode = false;
             }
             else
             {
@@ -291,6 +320,88 @@ namespace CameraCardGame
             }
             else
             {
+                if (readedQRCode != null)
+                {
+                    JavaScriptSerializer json = new JavaScriptSerializer();
+                    Dictionary<string, object> cardData = json.Deserialize<Dictionary<string, object>>(readedQRCode);
+
+                    Card card;
+                    try
+                    {
+                        card = new Card((int)cardData["id"], (String)cardData["name"], (int)cardData["health"], (int)cardData["attack"], (int)cardData["mana"], (String)cardData["isTaunt"]);
+                    }
+                    catch(Exception exception)
+                    {
+                        return;
+                    }
+
+                    if (!game.player1.useMana(card.manaCristals))
+                    {
+                        return;
+                    }
+
+                    if (!game.player1.putCard(card))
+                    {
+                        game.player1.useMana(-card.manaCristals);
+                        return;
+                    }
+                    else
+                    {
+                        placePlayer1Card(card);
+                    }
+                }
+            }
+        }
+
+        private void placePlayer1Card(Card card)
+        {
+            if (player1card1.Image == null)
+            {
+                player1card1.Image = card.getPicture();
+                player1card1.Visible = true;
+                return;
+            }
+
+            if (player1card2.Image == null)
+            {
+                player1card2.Image = card.getPicture();
+                player1card2.Visible = true;
+                return;
+            }
+
+            if (player1card3.Image == null)
+            {
+                player1card3.Image = card.getPicture();
+                player1card3.Visible = true;
+                return;
+            }
+
+            if (player1card4.Image == null)
+            {
+                player1card4.Image = card.getPicture();
+                player1card4.Visible = true;
+                return;
+            }
+
+            if (player1card5.Image == null)
+            {
+                player1card5.Image = card.getPicture();
+                player1card5.Visible = true;
+                return;
+            }
+
+            if (player1card6.Image == null)
+            {
+                player1card6.Image = card.getPicture();
+                player1card6.Visible = true;
+                return;
+            }
+
+            if (player1card7.Image == null)
+            {
+                player1card7.Image = card.getPicture();
+                player1card7.Visible = true;
+                return;
             }
         }
 
@@ -330,7 +441,7 @@ namespace CameraCardGame
             if (videoPlayer.VideoSource == null)
             {
                 messageBox.SelectionColor = Color.Red;
-                messageBox.AppendText("Please set up camera source in Options, before starting new game!\n");
+                messageBox.AppendText("Please set up camera source in Options, before starting game!\n");
                 messageBox.SelectionColor = messageBox.ForeColor;
 
                 return;
@@ -410,30 +521,47 @@ namespace CameraCardGame
                     button2.Text = "Disconnect";
                     MJPEGStream mjpegStream = new MJPEGStream("http://" + inputURL.Text + "/mjpegfeed?640x480");
                     OpenVideoSource(mjpegStream);
-
-                    //if (OpenVideoSource(mjpegStream))
-                    //{
-                    //    messageBox.SelectionColor = Color.Red;
-                    //    messageBox.AppendText("Cannot connect to video source!\n");
-                    //    messageBox.SelectionColor = messageBox.ForeColor;
-
-                    //    videoPlayer.VideoSource = null;
-
-                    //    return;
-                    //}
-                    //else
-                    //{
-                    //    button2.Text = "Disconnect";
-                    //    messageBox.SelectionColor = Color.Green;
-                    //    messageBox.AppendText("Connected to the video source!\n");
-                    //    messageBox.SelectionColor = messageBox.ForeColor;
-                    //}
                 }
                 else
                 {
                     button2.Text = "Connect";
                     CloseCurrentVideoSource();
                 }
+            }
+        }
+
+        private void player2CardMouseEnter(object sender, EventArgs e)
+        {
+            PictureBox control = (PictureBox)sender;
+
+            pictureBox16.Image = control.Image;
+            pictureBox16.SizeMode = PictureBoxSizeMode.StretchImage;
+        }
+
+        private void player2CardMouseLeave(object sender, EventArgs e)
+        {
+            pictureBox16.Image = null;
+        }
+
+        private void player1CardMouseEnter(object sender, EventArgs e)
+        {
+            PictureBox control = (PictureBox)sender;
+
+            pictureBox16.Image = control.Image;
+            pictureBox16.SizeMode = PictureBoxSizeMode.StretchImage;
+        }
+
+        private void player1CardMouseLeave(object sender, EventArgs e)
+        {
+            pictureBox16.Image = null;
+        }
+
+        private void MainForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
     }
