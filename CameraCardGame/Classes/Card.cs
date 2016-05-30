@@ -30,7 +30,7 @@ namespace CameraCardGame
         private int id;
         private int health { get; set; }
         private int attack { get; set; }
-        private int _manaCristals { get; set; }
+        private int manaCristals;
         private bool isTaunt { get; set; }
 
         public Card(int id, String name, int health, int attack, int manaCristals, String isTaunt)
@@ -45,7 +45,30 @@ namespace CameraCardGame
             this.picture = Image.FromFile("Assets/Cards/" + name + ".png");
         }
 
-        public int manaCristals { get { return _manaCristals; } set { this._manaCristals = value; } }
+        public int getManaCristals()
+        {
+            return manaCristals;
+        }
+
+        public void addManaCristal()
+        {
+            this.manaCristals++;
+        }
+
+        public void removeManaCristal()
+        {
+            this.manaCristals--;
+        }
+
+        public int getHealth()
+        {
+            return health;
+        }
+
+        public int getAttack()
+        {
+            return attack;
+        }
 
         public int getId()
         {
