@@ -313,6 +313,7 @@ namespace CameraCardGame
         {
             if (videoPlayer.VideoSource == null)
             {
+                hideCards();
                 showMenu();
                 writeMessage("Please set up camera source in Options, before starting game!", "warning");
             }
@@ -379,15 +380,17 @@ namespace CameraCardGame
             {
                 if (readedQRCode != null)
                 {
-                    JavaScriptSerializer json = new JavaScriptSerializer();
-                    Dictionary<string, object> cardData = json.Deserialize<Dictionary<string, object>>(readedQRCode);
-
+                    JavaScriptSerializer json;
+                    Dictionary<string, object> cardData;
                     Card card;
+
                     try
                     {
+                        json = new JavaScriptSerializer();
+                        cardData = json.Deserialize<Dictionary<string, object>>(readedQRCode);
                         card = new Card((int)cardData["id"], (String)cardData["name"], (int)cardData["health"], (int)cardData["attack"], (int)cardData["mana"], (String)cardData["isTaunt"]);
                     }
-                    catch(Exception exception)
+                    catch
                     {
                         return;
                     }
@@ -538,11 +541,13 @@ namespace CameraCardGame
             {
                 if (videoPlayer.VideoSource == null)
                 {
+                    optionConnectButton.Text = "Disconnect";
                     MJPEGStream mjpegStream = new MJPEGStream("http://" + inputURL.Text + "/mjpegfeed?640x480");
                     OpenVideoSource(mjpegStream);
                 }
                 else
                 {
+                    optionConnectButton.Text = "Connect";
                     CloseCurrentVideoSource();
                 }
             }
