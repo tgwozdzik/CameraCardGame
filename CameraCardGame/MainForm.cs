@@ -25,6 +25,9 @@ namespace CameraCardGame
         private Game game;
         private String readedQRCode = null;
 
+        private Card selectedPlayerCard = null;
+        private Card attackedOpponentCard = null;
+
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
 
@@ -37,25 +40,48 @@ namespace CameraCardGame
         {
             InitializeComponent();
 
+            var pos = this.PointToScreen(endTurn.Location);
+            pos = pictureBox1.PointToClient(pos);
+            endTurn.Parent = pictureBox1;
+            endTurn.Location = pos;
+
+            hideCards();
+        }
+
+        private void setPreviewCardCaptions(String cardType) {
+            if (cardType == "dragon")
+            {
+                cardPreviewHealth.Location = new Point(158, 394);
+                cardPreviewAttact.Location = new Point(17, 392);
+                cardPreviewManaCristals.Location = new Point(16, 196);
+            }
+            else if (cardType == "rounded")
+            {
+                cardPreviewHealth.Location = new Point(158, 393);
+                cardPreviewAttact.Location = new Point(17, 393);
+                cardPreviewManaCristals.Location = new Point(16, 186);
+            }
+            else
+            {
+                cardPreviewHealth.Location = new Point(158, 391);
+                cardPreviewAttact.Location = new Point(17, 391);
+                cardPreviewManaCristals.Location = new Point(16, 188);
+            }
+
             var pos = this.PointToScreen(cardPreviewHealth.Location);
             pos = cardPreview.PointToClient(pos);
             cardPreviewHealth.Parent = cardPreview;
             cardPreviewHealth.Location = pos;
-            cardPreviewHealth.Parent = cardPreview;
 
             pos = this.PointToScreen(cardPreviewAttact.Location);
             pos = cardPreview.PointToClient(pos);
             cardPreviewAttact.Parent = cardPreview;
             cardPreviewAttact.Location = pos;
-            cardPreviewAttact.Parent = cardPreview;
 
             pos = this.PointToScreen(cardPreviewManaCristals.Location);
             pos = cardPreview.PointToClient(pos);
             cardPreviewManaCristals.Parent = cardPreview;
-            cardPreviewManaCristals.Location = pos;
-            cardPreviewManaCristals.Parent = cardPreview;
-
-            hideCards();
+            cardPreviewManaCristals.Location = pos; 
         }
 
         private void showCards()
@@ -113,6 +139,7 @@ namespace CameraCardGame
             optionConnectButton.Visible = false;
             button3.Visible = false;
             showMenuButton.Visible = true;
+            endTurn.Visible = true;
 
             showMenuButton.Text = "Show Menu";
         }
@@ -133,6 +160,7 @@ namespace CameraCardGame
             startGame.Visible = true;
             optionConnectButton.Visible = true;
             button3.Visible = true;
+            endTurn.Visible = false;
 
             showMenuButton.Text = "New Game";
         }
@@ -181,7 +209,7 @@ namespace CameraCardGame
             gameStatsUpdate.Start();
             player1Timer.Start();
 
-            messageBox.AppendText("Start New Game!\n");
+            messageBox.AppendText("Start New Game!");
         }
 
         private void ControlInvokeRequired(Control control, Action action)
@@ -305,7 +333,7 @@ namespace CameraCardGame
             {
                 hideMenu();
                 showCards();
-                writeMessage("Game is live!\n");
+                writeMessage("Game is live!");
             }
         }
 
@@ -318,8 +346,8 @@ namespace CameraCardGame
                 writeMessage("Please set up camera source in Options, before starting game!", "warning");
             }
 
-            player1CardsLeft.Text = game.player1.cardsLeft.ToString();
-            player2CardsLeft.Text = game.player2.cardsLeft.ToString();
+            player1CardsLeft.Text = game.player1.getCardsLeft().ToString();
+            player2CardsLeft.Text = game.player2.getCardsLeft().ToString();
 
             round.Text = game.round.ToString();
 
@@ -346,22 +374,82 @@ namespace CameraCardGame
             startGame.Text = "Resume";
         }
 
+        private void changeTurn() {
+            if (game.turn == 1)
+            {
+                player1Timer.Stop();
+                writeMessage("Player2 turn!");
+                game.changeTurn();
+                game.resetTurnTimer();
+                readedQRCode = null;
+                player2Timer.Start();
+                game.player2.takeCard();
+            }
+            else
+            {
+                player2Timer.Stop();
+                writeMessage("Player1 turn!");
+                game.nextRound();
+                game.changeTurn();
+                game.resetTurnTimer();
+                readedQRCode = null;
+                player1Timer.Start();
+                game.player1.takeCard();
+            }
+        }
+
+        private Card readCard() {
+            JavaScriptSerializer json;
+            Dictionary<string, object> cardData;
+            Card card;
+
+            if (readedQRCode != null)
+            {
+                try
+                {
+                    json = new JavaScriptSerializer();
+                    cardData = json.Deserialize<Dictionary<string, object>>(readedQRCode);
+                    card = new Card((int)cardData["id"], (String)cardData["name"], (String)cardData["card_type"], (int)cardData["health"], (int)cardData["attack"], (int)cardData["mana"], (String)cardData["isTaunt"]);
+                }
+                catch
+                {
+                    return null;
+                }
+
+                return card;
+            }
+
+            return null;
+        }
+
         private void player2Timer_Tick(object sender, EventArgs e)
         {
             game.decreaseTurnTimer(player2Timer.Interval);
 
             if (game.turnTimer == 0)
             {
-                player2Timer.Stop();
-                writeMessage("Player1 turn!\n");
-                game.nextRound();
-                game.changeTurn();
-                game.resetTurnTimer();
-                player1Timer.Start();
-                game.player1.vaitingForQRCode = false;
+                changeTurn();
             }
             else
             {
+                Card card = readCard();
+
+                if (card == null) return;
+
+                if (!game.player2.useMana(card.getManaCristals()))
+                {
+                    return;
+                }
+
+                if (!game.player2.putCard(card) || !game.player1.putCard(card))
+                {
+                    game.player2.useMana(-card.getManaCristals());
+                    return;
+                }
+                else
+                {
+                    placePlayer2Card(card);
+                }
             }
         }
 
@@ -370,46 +458,29 @@ namespace CameraCardGame
             game.decreaseTurnTimer(player1Timer.Interval);
 
             if (game.turnTimer == 0) {
-                player1Timer.Stop();
-                writeMessage("Player2 turn!\n");
-                game.changeTurn();
-                game.resetTurnTimer();
-                player2Timer.Start();
+                changeTurn();
             }
             else
             {
-                if (readedQRCode != null)
+                Card card = readCard();
+
+                if (card == null) return;
+
+                if (!game.player1.useMana(card.getManaCristals()))
                 {
-                    JavaScriptSerializer json;
-                    Dictionary<string, object> cardData;
-                    Card card;
-
-                    try
-                    {
-                        json = new JavaScriptSerializer();
-                        cardData = json.Deserialize<Dictionary<string, object>>(readedQRCode);
-                        card = new Card((int)cardData["id"], (String)cardData["name"], (int)cardData["health"], (int)cardData["attack"], (int)cardData["mana"], (String)cardData["isTaunt"]);
-                    }
-                    catch
-                    {
-                        return;
-                    }
-
-                    if (!game.player1.useMana(card.getManaCristals()))
-                    {
-                        return;
-                    }
-
-                    if (!game.player1.putCard(card))
-                    {
-                        game.player1.useMana(-card.getManaCristals());
-                        return;
-                    }
-                    else
-                    {
-                        placePlayer1Card(card);
-                    }
+                    return;
                 }
+
+                if (!game.player1.putCard(card) || !game.player2.putCard(card))
+                {
+                    game.player1.useMana(-card.getManaCristals());
+                    return;
+                }
+                else
+                {
+                    placePlayer1Card(card);
+                }
+                
             }
         }
 
@@ -468,6 +539,65 @@ namespace CameraCardGame
                 player1card7.MouseEnter += new System.EventHandler((sender, e) => CardMouseEnter(sender, e, card));
                 player1card7.Image = card.getPicture();
                 player1card7.Visible = true;
+                return;
+            }
+        }
+
+        private void placePlayer2Card(Card card)
+        {
+            if (player2card1.Image == null)
+            {
+                player2card1.MouseEnter += new System.EventHandler((sender, e) => CardMouseEnter(sender, e, card));
+                player2card1.Image = card.getPicture();
+                player2card1.Visible = true;
+                return;
+            }
+
+            if (player2card2.Image == null)
+            {
+                player2card2.MouseEnter += new System.EventHandler((sender, e) => CardMouseEnter(sender, e, card));
+                player2card2.Image = card.getPicture();
+                player2card2.Visible = true;
+                return;
+            }
+
+            if (player2card3.Image == null)
+            {
+                player2card3.MouseEnter += new System.EventHandler((sender, e) => CardMouseEnter(sender, e, card));
+                player2card3.Image = card.getPicture();
+                player2card3.Visible = true;
+                return;
+            }
+
+            if (player2card4.Image == null)
+            {
+                player2card4.MouseEnter += new System.EventHandler((sender, e) => CardMouseEnter(sender, e, card));
+                player2card4.Image = card.getPicture();
+                player2card4.Visible = true;
+                return;
+            }
+
+            if (player2card5.Image == null)
+            {
+                player2card5.MouseEnter += new System.EventHandler((sender, e) => CardMouseEnter(sender, e, card));
+                player2card5.Image = card.getPicture();
+                player2card5.Visible = true;
+                return;
+            }
+
+            if (player2card6.Image == null)
+            {
+                player2card6.MouseEnter += new System.EventHandler((sender, e) => CardMouseEnter(sender, e, card));
+                player2card6.Image = card.getPicture();
+                player2card6.Visible = true;
+                return;
+            }
+
+            if (player2card7.Image == null)
+            {
+                player2card7.MouseEnter += new System.EventHandler((sender, e) => CardMouseEnter(sender, e, card));
+                player2card7.Image = card.getPicture();
+                player2card7.Visible = true;
                 return;
             }
         }
@@ -565,6 +695,8 @@ namespace CameraCardGame
 
         private void CardMouseEnter(object sender, EventArgs e, Card card)
         {
+            setPreviewCardCaptions(card.getCardType());
+
             cardPreview.Visible = true;
             cardPreview.Image = card.getPicture();
 
@@ -587,6 +719,11 @@ namespace CameraCardGame
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
+        }
+
+        private void endTurn_Click(object sender, EventArgs e)
+        {
+            changeTurn();
         }
     }
 }

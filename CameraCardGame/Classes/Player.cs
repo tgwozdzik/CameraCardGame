@@ -12,11 +12,8 @@ namespace CameraCardGame
         private int _health { get; set; }
         private int armor { get; set; }
         private int attack { get; set; }
-        private int _cardsLeft { get; set; }
+        private int cardsLeft;
         private int _manaCristals { get; set; }
-
-        private bool _vaitingForQRCode { get; set; }
-        private bool _readedQRCode { get; set; }
 
         public Player(List<Card> cards, int health, int armor, int attack, int cardsLeft, int manaCristals)
         {
@@ -24,24 +21,31 @@ namespace CameraCardGame
             this.health = health;
             this.armor = armor;
             this.attack = attack;
-            this._cardsLeft = cardsLeft;
+            this.cardsLeft = cardsLeft;
             this._manaCristals = manaCristals;
-            this._vaitingForQRCode = false;
-            this._readedQRCode = false;
         }
 
         public bool putCard(Card card)
         {
             for (int i = 0; i < this.cards.Count; ++i)
             {
-                if (this.cards[i].getName() == card.getName()) return false;
+                if (this.cards[i].getId() == card.getId()) return false;
             }
            
             this.cards.Add(card);
             return true;
         }
 
-        public int cardsLeft { get { return _cardsLeft; } set { this._cardsLeft = value; } }
+        public int getCardsLeft()
+        {
+            return this.cardsLeft;
+        }
+
+        public void takeCard()
+        {
+            this.cardsLeft--;
+        }
+
         public int health { get { return _health; } set { this._health = value; } }
         public int manaCristals { get { return _manaCristals; } set { this._manaCristals = value; } }
         public bool useMana(int value)
@@ -53,7 +57,5 @@ namespace CameraCardGame
                 return true;
             }
         }
-        public bool vaitingForQRCode { get { return _vaitingForQRCode; } set { this._vaitingForQRCode = value; } }
-        public bool readedQRCode { get { return _readedQRCode; } set { this._readedQRCode = value; } }
     }
 }

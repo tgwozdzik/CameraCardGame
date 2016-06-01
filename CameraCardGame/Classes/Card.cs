@@ -32,8 +32,9 @@ namespace CameraCardGame
         private int attack { get; set; }
         private int manaCristals;
         private bool isTaunt { get; set; }
+        private String cardType;
 
-        public Card(int id, String name, int health, int attack, int manaCristals, String isTaunt)
+        public Card(int id, String name, String cardType, int health, int attack, int manaCristals, String isTaunt)
         {
             this.id = id;
             this.name = name;
@@ -41,13 +42,19 @@ namespace CameraCardGame
             this.attack = attack;
             this.manaCristals = manaCristals;
             this.isTaunt = isTaunt == "true";
+            this.cardType = cardType;
 
             this.picture = Image.FromFile("Assets/Cards/" + name + ".png");
         }
 
+        public String getCardType()
+        {
+            return this.cardType;
+        }
+
         public int getManaCristals()
         {
-            return manaCristals;
+            return this.manaCristals;
         }
 
         public void addManaCristal()
@@ -62,27 +69,27 @@ namespace CameraCardGame
 
         public int getHealth()
         {
-            return health;
+            return this.health;
         }
 
         public int getAttack()
         {
-            return attack;
+            return this.attack;
         }
 
         public int getId()
         {
-            return id;
+            return this.id;
         }
 
         public String getName()
         {
-            return name;
+            return this.name;
         }
 
         public Image getPicture()
         {
-            return picture;
+            return this.picture;
         }
     }
 }

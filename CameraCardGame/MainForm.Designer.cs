@@ -77,6 +77,8 @@
             this.cardPreviewHealth = new System.Windows.Forms.Label();
             this.cardPreviewAttact = new System.Windows.Forms.Label();
             this.cardPreviewManaCristals = new System.Windows.Forms.Label();
+            this.endTurn = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.player2card4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player2card2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player2card1)).BeginInit();
@@ -92,6 +94,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.player1card7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player1card6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardPreview)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // videoPlayer
@@ -623,6 +626,7 @@
             // cardPreview
             // 
             this.cardPreview.BackColor = System.Drawing.Color.Transparent;
+            this.cardPreview.Image = ((System.Drawing.Image)(resources.GetObject("cardPreview.Image")));
             this.cardPreview.Location = new System.Drawing.Point(3, 176);
             this.cardPreview.Name = "cardPreview";
             this.cardPreview.Size = new System.Drawing.Size(197, 261);
@@ -636,7 +640,7 @@
             this.cardPreviewHealth.BackColor = System.Drawing.Color.Transparent;
             this.cardPreviewHealth.Font = new System.Drawing.Font("Bell MT", 20F);
             this.cardPreviewHealth.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.cardPreviewHealth.Location = new System.Drawing.Point(158, 396);
+            this.cardPreviewHealth.Location = new System.Drawing.Point(159, 394);
             this.cardPreviewHealth.Name = "cardPreviewHealth";
             this.cardPreviewHealth.Size = new System.Drawing.Size(41, 30);
             this.cardPreviewHealth.TabIndex = 52;
@@ -649,7 +653,7 @@
             this.cardPreviewAttact.BackColor = System.Drawing.Color.Transparent;
             this.cardPreviewAttact.Font = new System.Drawing.Font("Bell MT", 20F);
             this.cardPreviewAttact.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.cardPreviewAttact.Location = new System.Drawing.Point(17, 394);
+            this.cardPreviewAttact.Location = new System.Drawing.Point(16, 393);
             this.cardPreviewAttact.Name = "cardPreviewAttact";
             this.cardPreviewAttact.Size = new System.Drawing.Size(41, 30);
             this.cardPreviewAttact.TabIndex = 53;
@@ -662,13 +666,46 @@
             this.cardPreviewManaCristals.BackColor = System.Drawing.Color.Transparent;
             this.cardPreviewManaCristals.Font = new System.Drawing.Font("Bell MT", 20F);
             this.cardPreviewManaCristals.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.cardPreviewManaCristals.Location = new System.Drawing.Point(16, 186);
+            this.cardPreviewManaCristals.Location = new System.Drawing.Point(16, 188);
             this.cardPreviewManaCristals.Name = "cardPreviewManaCristals";
             this.cardPreviewManaCristals.Size = new System.Drawing.Size(41, 30);
             this.cardPreviewManaCristals.TabIndex = 54;
             this.cardPreviewManaCristals.Text = "0";
             this.cardPreviewManaCristals.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cardPreviewManaCristals.Visible = false;
+            // 
+            // endTurn
+            // 
+            this.endTurn.BackColor = System.Drawing.Color.Transparent;
+            this.endTurn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.endTurn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.endTurn.FlatAppearance.BorderSize = 0;
+            this.endTurn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.endTurn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.endTurn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.endTurn.Font = new System.Drawing.Font("Bell MT", 10F);
+            this.endTurn.Location = new System.Drawing.Point(956, 301);
+            this.endTurn.Margin = new System.Windows.Forms.Padding(1);
+            this.endTurn.Name = "endTurn";
+            this.endTurn.Size = new System.Drawing.Size(92, 37);
+            this.endTurn.TabIndex = 55;
+            this.endTurn.Text = "END TURN";
+            this.endTurn.UseVisualStyleBackColor = false;
+            this.endTurn.Visible = false;
+            this.endTurn.Click += new System.EventHandler(this.endTurn_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(958, 299);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(86, 40);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 56;
+            this.pictureBox1.TabStop = false;
             // 
             // MainForm
             // 
@@ -678,6 +715,8 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1200, 700);
             this.ControlBox = false;
+            this.Controls.Add(this.endTurn);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.cardPreviewManaCristals);
             this.Controls.Add(this.cardPreviewAttact);
             this.Controls.Add(this.cardPreviewHealth);
@@ -745,6 +784,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.player1card7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.player1card6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardPreview)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -799,6 +839,8 @@
         private System.Windows.Forms.Label cardPreviewHealth;
         private System.Windows.Forms.Label cardPreviewAttact;
         private System.Windows.Forms.Label cardPreviewManaCristals;
+        private System.Windows.Forms.Button endTurn;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

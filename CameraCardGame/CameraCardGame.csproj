@@ -107,6 +107,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Cards\baron_rivendare.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Cards\bloodlust.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\Cards\novice_engineer.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
