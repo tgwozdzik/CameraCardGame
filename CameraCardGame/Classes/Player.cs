@@ -25,15 +25,29 @@ namespace CameraCardGame
             this._manaCristals = manaCristals;
         }
 
-        public bool putCard(Card card)
+        public Card getCardOnTable(int onTableId)
         {
             for (int i = 0; i < this.cards.Count; ++i)
             {
-                if (this.cards[i].getId() == card.getId()) return false;
+                if (this.cards[i].getOnTableId() == onTableId) return cards[i];
             }
-           
+
+            return null;
+        }
+
+        public bool isCardOnList(Card card)
+        {
+            for (int i = 0; i < this.cards.Count; ++i)
+            {
+                if (this.cards[i].getId() == card.getId()) return true;
+            }
+
+            return false;
+        }
+
+        public void putCard(Card card)
+        {
             this.cards.Add(card);
-            return true;
         }
 
         public int getCardsLeft()

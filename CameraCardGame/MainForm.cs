@@ -441,13 +441,14 @@ namespace CameraCardGame
                     return;
                 }
 
-                if (!game.player2.putCard(card) || !game.player1.putCard(card))
+                if (game.player2.isCardOnList(card) || game.player1.isCardOnList(card))
                 {
                     game.player2.useMana(-card.getManaCristals());
                     return;
                 }
                 else
                 {
+                    game.player2.putCard(card);
                     placePlayer2Card(card);
                 }
             }
@@ -471,16 +472,100 @@ namespace CameraCardGame
                     return;
                 }
 
-                if (!game.player1.putCard(card) || !game.player2.putCard(card))
+                if (game.player1.isCardOnList(card) || game.player2.isCardOnList(card))
                 {
                     game.player1.useMana(-card.getManaCristals());
                     return;
                 }
                 else
                 {
+                    game.player1.putCard(card);
                     placePlayer1Card(card);
                 }
                 
+            }
+        }
+
+        private void cleanSelectedCards()
+        {
+            if (selectedPlayerCard != null)
+            {
+                if (game.player1.isCardOnList(selectedPlayerCard))
+                {
+                    PictureBox pictureBoxTemp = (PictureBox)Controls.Find("player1card" + selectedPlayerCard.getOnTableId().ToString(), true)[0];
+                    pictureBoxTemp.BorderStyle = BorderStyle.None;
+                }
+                else
+                {
+                    PictureBox pictureBoxTemp = (PictureBox)Controls.Find("player2card" + selectedPlayerCard.getOnTableId().ToString(), true)[0];
+                    pictureBoxTemp.BorderStyle = BorderStyle.None;
+                }
+
+                selectedPlayerCard = null;
+            }
+            if (attackedOpponentCard != null)
+            {
+                if (game.player1.isCardOnList(attackedOpponentCard))
+                {
+                    PictureBox pictureBoxTemp = (PictureBox)Controls.Find("player1card" + selectedPlayerCard.getOnTableId().ToString(), true)[0];
+                    pictureBoxTemp.BorderStyle = BorderStyle.None;
+                }
+                else
+                {
+                    PictureBox pictureBoxTemp = (PictureBox)Controls.Find("player2card" + selectedPlayerCard.getOnTableId().ToString(), true)[0];
+                    pictureBoxTemp.BorderStyle = BorderStyle.None;
+                }
+
+                attackedOpponentCard = null;
+            }
+        }
+
+        private void selectCard(object sender, EventArgs e)
+        {
+            PictureBox pictureBox = (PictureBox) sender;
+            Card card = null;
+
+            String lastLetter = pictureBox.Name.Substring(pictureBox.Name.Length - 1, 1);
+
+            if (game.turn == 1)
+            {
+                if (selectedPlayerCard != null)
+                {
+                    card = game.player2.getCardOnTable(Int32.Parse(lastLetter));
+                }
+                else
+                {
+                    card = game.player1.getCardOnTable(Int32.Parse(lastLetter));
+                }
+            }
+            else
+            {
+                if (selectedPlayerCard != null)
+                {
+                    card = game.player1.getCardOnTable(Int32.Parse(lastLetter));
+                }
+                else
+                {
+                    card = game.player2.getCardOnTable(Int32.Parse(lastLetter));
+                }
+            }
+
+            if (card == null)
+            {
+                
+            }
+            else
+            {
+                if (selectedPlayerCard == null)
+                {
+                    selectedPlayerCard = card;
+                }
+                else
+                {
+                    attackedOpponentCard = card;
+                }
+
+                pictureBox.BorderStyle = BorderStyle.FixedSingle;
             }
         }
 
@@ -489,6 +574,7 @@ namespace CameraCardGame
             if (player1card1.Image == null)
             {
                 player1card1.MouseEnter += new System.EventHandler((sender, e) => CardMouseEnter(sender, e, card));
+                card.setOntableId(1);
                 player1card1.Image = card.getPicture();
                 player1card1.Visible = true;
                 return;
@@ -497,6 +583,7 @@ namespace CameraCardGame
             if (player1card2.Image == null)
             {
                 player1card2.MouseEnter += new System.EventHandler((sender, e) => CardMouseEnter(sender, e, card));
+                card.setOntableId(2);
                 player1card2.Image = card.getPicture();
                 player1card2.Visible = true;
                 return;
@@ -505,6 +592,7 @@ namespace CameraCardGame
             if (player1card3.Image == null)
             {
                 player1card3.MouseEnter += new System.EventHandler((sender, e) => CardMouseEnter(sender, e, card));
+                card.setOntableId(3);
                 player1card3.Image = card.getPicture();
                 player1card3.Visible = true;
                 return;
@@ -513,6 +601,7 @@ namespace CameraCardGame
             if (player1card4.Image == null)
             {
                 player1card4.MouseEnter += new System.EventHandler((sender, e) => CardMouseEnter(sender, e, card));
+                card.setOntableId(4);
                 player1card4.Image = card.getPicture();
                 player1card4.Visible = true;
                 return;
@@ -521,6 +610,7 @@ namespace CameraCardGame
             if (player1card5.Image == null)
             {
                 player1card5.MouseEnter += new System.EventHandler((sender, e) => CardMouseEnter(sender, e, card));
+                card.setOntableId(5);
                 player1card5.Image = card.getPicture();
                 player1card5.Visible = true;
                 return;
@@ -529,6 +619,7 @@ namespace CameraCardGame
             if (player1card6.Image == null)
             {
                 player1card6.MouseEnter += new System.EventHandler((sender, e) => CardMouseEnter(sender, e, card));
+                card.setOntableId(6);
                 player1card6.Image = card.getPicture();
                 player1card6.Visible = true;
                 return;
@@ -537,6 +628,7 @@ namespace CameraCardGame
             if (player1card7.Image == null)
             {
                 player1card7.MouseEnter += new System.EventHandler((sender, e) => CardMouseEnter(sender, e, card));
+                card.setOntableId(7);
                 player1card7.Image = card.getPicture();
                 player1card7.Visible = true;
                 return;
@@ -724,6 +816,8 @@ namespace CameraCardGame
         private void endTurn_Click(object sender, EventArgs e)
         {
             changeTurn();
+
+            cleanSelectedCards();
         }
     }
 }

@@ -32,6 +32,7 @@ namespace CameraCardGame
         private int attack { get; set; }
         private int manaCristals;
         private bool isTaunt { get; set; }
+        private int onTableId;
         private String cardType;
 
         public Card(int id, String name, String cardType, int health, int attack, int manaCristals, String isTaunt)
@@ -43,8 +44,19 @@ namespace CameraCardGame
             this.manaCristals = manaCristals;
             this.isTaunt = isTaunt == "true";
             this.cardType = cardType;
+            this.onTableId = -1;
 
             this.picture = Image.FromFile("Assets/Cards/" + name + ".png");
+        }
+
+        public int getOnTableId()
+        {
+            return this.onTableId;
+        }
+
+        public void setOntableId(int onTableId)
+        {
+            this.onTableId = onTableId;
         }
 
         public String getCardType()

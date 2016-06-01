@@ -543,6 +543,7 @@
             this.player1card1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.player1card1.TabIndex = 44;
             this.player1card1.TabStop = false;
+            this.player1card1.Click += new System.EventHandler(this.selectCard);
             this.player1card1.MouseLeave += new System.EventHandler(this.CardMouseLeave);
             // 
             // player1card3
@@ -595,6 +596,7 @@
             this.player1card5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.player1card5.TabIndex = 48;
             this.player1card5.TabStop = false;
+            this.player1card5.Click += new System.EventHandler(this.selectCard);
             this.player1card5.MouseLeave += new System.EventHandler(this.CardMouseLeave);
             // 
             // player1card7
