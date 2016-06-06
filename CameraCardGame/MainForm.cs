@@ -187,8 +187,18 @@ namespace CameraCardGame
             player1Timer.Stop();
             player2Timer.Stop();
 
-            Player player1 = new Player(new List<Card>(), 30, 0, 0, 30, 1);
-            Player player2 = new Player(new List<Card>(), 30, 0, 0, 30, 1);
+            Player player1 = new Player(new List<Card>(), 30, 1);
+            Player player2 = new Player(new List<Card>(), 30, 1);
+
+            Card card = new Card(0, "main_hero", "", 30, 0, 0, "false");
+            card.setOntableId(0);
+
+            player1.putCard(card);
+
+            card = new Card(8, "main_hero", "", 5, 0, 0, "false");
+            card.setOntableId(8);
+
+            player2.putCard(card);
 
             game = new Game(player1, player2, 1, 1, 180);
 
@@ -322,7 +332,7 @@ namespace CameraCardGame
             }
         }
         private void gameStatsUpdate_Tick(object sender, EventArgs e)
-        {
+        {            
             if (videoPlayer.VideoSource == null)
             {
                 hideCards();
@@ -347,8 +357,18 @@ namespace CameraCardGame
             }
 
             //Health
-            player1Health.Text = game.player1.health.ToString();
-            player2Health.Text = game.player2.health.ToString();
+            player1Health.Text = game.player1.getHealth().ToString();
+            player2Health.Text = game.player2.getHealth().ToString();
+
+            if (game.player1.getHealth() <= 0 || game.player2.getHealth() <= 0)
+            {
+                player1Timer.Stop();
+                player2Timer.Stop();
+                gameStatsUpdate.Stop();
+
+                hideCards();
+                showMenu();
+            }
 
             //ManaCristals
             player1ManaCristals.Text = game.player1.getManaCristals().ToString() + "/10";
@@ -532,7 +552,8 @@ namespace CameraCardGame
         {
             PictureBox pictureBox = (PictureBox) sender;
 
-            if (pictureBox.Image == null) return;
+            if (pictureBox.Image == null && 
+                !(pictureBox.Name.Substring(pictureBox.Name.Length - 1, 1) == "8" || pictureBox.Name.Substring(pictureBox.Name.Length - 1, 1) == "0")) return;
 
             Card card = null;
 

@@ -79,6 +79,8 @@
             this.cardPreviewManaCristals = new System.Windows.Forms.Label();
             this.endTurn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.player2card8 = new System.Windows.Forms.PictureBox();
+            this.player1card0 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.player2card4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player2card2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player2card1)).BeginInit();
@@ -95,6 +97,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.player1card6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardPreview)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player2card8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player1card0)).BeginInit();
             this.SuspendLayout();
             // 
             // videoPlayer
@@ -734,6 +738,32 @@
             this.pictureBox1.TabIndex = 56;
             this.pictureBox1.TabStop = false;
             // 
+            // player2card8
+            // 
+            this.player2card8.BackColor = System.Drawing.Color.Transparent;
+            this.player2card8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.player2card8.Location = new System.Drawing.Point(553, 473);
+            this.player2card8.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.player2card8.Name = "player2card8";
+            this.player2card8.Size = new System.Drawing.Size(97, 126);
+            this.player2card8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.player2card8.TabIndex = 57;
+            this.player2card8.TabStop = false;
+            this.player2card8.Click += new System.EventHandler(this.selectCard);
+            // 
+            // player1card0
+            // 
+            this.player1card0.BackColor = System.Drawing.Color.Transparent;
+            this.player1card0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.player1card0.Location = new System.Drawing.Point(553, 63);
+            this.player1card0.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.player1card0.Name = "player1card0";
+            this.player1card0.Size = new System.Drawing.Size(97, 124);
+            this.player1card0.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.player1card0.TabIndex = 58;
+            this.player1card0.TabStop = false;
+            this.player1card0.Click += new System.EventHandler(this.selectCard);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -742,6 +772,10 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1200, 700);
             this.ControlBox = false;
+            this.Controls.Add(this.player2Health);
+            this.Controls.Add(this.player1Health);
+            this.Controls.Add(this.player1card0);
+            this.Controls.Add(this.player2card8);
             this.Controls.Add(this.endTurn);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.cardPreviewManaCristals);
@@ -758,8 +792,6 @@
             this.Controls.Add(this.showMenuButton);
             this.Controls.Add(this.player1ManaCristals);
             this.Controls.Add(this.player2ManaCristals);
-            this.Controls.Add(this.player1Health);
-            this.Controls.Add(this.player2Health);
             this.Controls.Add(this.timeLeft);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.player2card4);
@@ -813,6 +845,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.player1card6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardPreview)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player2card8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player1card0)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -869,6 +903,8 @@
         private System.Windows.Forms.Label cardPreviewManaCristals;
         private System.Windows.Forms.Button endTurn;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox player2card8;
+        private System.Windows.Forms.PictureBox player1card0;
     }
 }
 

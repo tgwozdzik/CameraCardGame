@@ -9,22 +9,20 @@ namespace CameraCardGame
     class Player
     {
         private List<Card> cards { get; set; }
-        private int _health { get; set; }
-        private int armor { get; set; }
-        private int attack { get; set; }
         private int cardsLeft;
         private int manaCristals;
         private int manaCristalsCopy;
 
-        public Player(List<Card> cards, int health, int armor, int attack, int cardsLeft, int manaCristals)
+        public Player(List<Card> cards, int cardsLeft, int manaCristals)
         {
             this.cards = cards;
-            this.health = health;
-            this.armor = armor;
-            this.attack = attack;
             this.cardsLeft = cardsLeft;
             this.manaCristals = manaCristals;
             this.manaCristalsCopy = manaCristals;
+        }
+
+        public int getHealth() {
+            return this.cards[0].getHealth();
         }
 
         public Card getCardOnTable(int onTableId)
@@ -39,6 +37,8 @@ namespace CameraCardGame
 
         public void removeCard(Card card)
         {
+            if (card.getId() == 0 || card.getId() == 8) return; 
+
             for (int i = 0; i < this.cards.Count; ++i)
             {
                 if (this.cards[i].getId() == card.getId()) cards.RemoveAt(i);
@@ -75,8 +75,6 @@ namespace CameraCardGame
         {
             this.cardsLeft--;
         }
-
-        public int health { get { return _health; } set { this._health = value; } }
 
         public int getManaCristals()
         {

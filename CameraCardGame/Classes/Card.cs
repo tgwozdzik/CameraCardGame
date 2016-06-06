@@ -46,7 +46,9 @@ namespace CameraCardGame
             this.cardType = cardType;
             this.onTableId = -1;
 
-            this.picture = Image.FromFile("Assets/Cards/" + name + ".png");
+            if (name != "main_hero") { 
+                this.picture = Image.FromFile("Assets/Cards/" + name + ".png"); 
+            }
         }
 
         public int getOnTableId()
