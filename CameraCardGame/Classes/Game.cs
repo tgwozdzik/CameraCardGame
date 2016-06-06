@@ -25,6 +25,12 @@ namespace CameraCardGame
             this._tempTurnTimer = this._turnTimer;
         }
 
+        public void fight(Card atkCard, Card defCard) 
+        {
+            defCard.takeHealth(atkCard.getAttack());
+            atkCard.takeHealth(defCard.getAttack());
+        }
+
         public Player player1 {
             get
             {

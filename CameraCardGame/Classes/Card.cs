@@ -6,20 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-//System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-//var pictureBox = new PictureBox();
-//pictureBox.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-//pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-//pictureBox.Size = new Size(75, 110);
-//pictureBox.Location = new Point(260, 60);
-
-//pictureBox.MouseDown += new MouseEventHandler(PictureBoxMouseDown);
-//pictureBox.MouseUp += new MouseEventHandler(PictureBoxMouseUp);
-//pictureBox.MouseMove += new MouseEventHandler(PictureBoxMouseMove);
-
-//this.Controls.Add(pictureBox);
-
-
 namespace CameraCardGame
 {
     class Card
@@ -28,8 +14,8 @@ namespace CameraCardGame
 
         private String name;
         private int id;
-        private int health { get; set; }
-        private int attack { get; set; }
+        private int health;
+        private int attack;
         private int manaCristals;
         private bool isTaunt { get; set; }
         private int onTableId;
@@ -52,6 +38,11 @@ namespace CameraCardGame
         public int getOnTableId()
         {
             return this.onTableId;
+        }
+
+        public void takeHealth(int value)
+        {
+            this.health -= value;
         }
 
         public void setOntableId(int onTableId)
