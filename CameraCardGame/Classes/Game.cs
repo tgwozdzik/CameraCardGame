@@ -25,6 +25,41 @@ namespace CameraCardGame
             this._tempTurnTimer = this._turnTimer;
         }
 
+        public bool updatePlayersCard(Card atkCard, Card defCard)
+        {
+            bool deleted = false;
+
+            if (_player1.isCardOnList(atkCard) && atkCard.getHealth() <= 0) 
+            {
+                _player1.removeCard(atkCard);
+                deleted = true;
+            }
+            if (_player1.isCardOnList(defCard) && defCard.getHealth() <= 0) 
+            {
+                _player1.removeCard(defCard);
+                deleted = true;
+            }
+            
+            if (_player2.isCardOnList(atkCard) && atkCard.getHealth() <= 0) 
+            {
+                _player2.removeCard(atkCard);
+                deleted = true;
+            }
+            if (_player2.isCardOnList(defCard) && defCard.getHealth() <= 0) 
+            {
+                _player2.removeCard(defCard);
+                deleted = true;
+            }
+
+            return deleted;
+        }
+
+        public void fight(Card atkCard, Card defCard) 
+        {
+            defCard.takeHealth(atkCard.getAttack());
+            atkCard.takeHealth(defCard.getAttack());
+        }
+
         public Player player1 {
             get
             {

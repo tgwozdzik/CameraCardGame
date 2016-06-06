@@ -13,7 +13,8 @@ namespace CameraCardGame
         private int armor { get; set; }
         private int attack { get; set; }
         private int cardsLeft;
-        private int _manaCristals { get; set; }
+        private int manaCristals;
+        private int manaCristalsCopy;
 
         public Player(List<Card> cards, int health, int armor, int attack, int cardsLeft, int manaCristals)
         {
@@ -22,7 +23,8 @@ namespace CameraCardGame
             this.armor = armor;
             this.attack = attack;
             this.cardsLeft = cardsLeft;
-            this._manaCristals = manaCristals;
+            this.manaCristals = manaCristals;
+            this.manaCristalsCopy = manaCristals;
         }
 
         public Card getCardOnTable(int onTableId)
@@ -35,6 +37,14 @@ namespace CameraCardGame
             return null;
         }
 
+        public void removeCard(Card card)
+        {
+            for (int i = 0; i < this.cards.Count; ++i)
+            {
+                if (this.cards[i].getId() == card.getId()) cards.RemoveAt(i);
+            }
+        }
+
         public bool isCardOnList(Card card)
         {
             for (int i = 0; i < this.cards.Count; ++i)
@@ -45,9 +55,15 @@ namespace CameraCardGame
             return false;
         }
 
-        public void putCard(Card card)
+        public bool putCard(Card card)
         {
-            this.cards.Add(card);
+            if (cards.Count < 7)
+            {
+                this.cards.Add(card);
+                return true;
+            }
+
+            return false;
         }
 
         public int getCardsLeft()
@@ -61,14 +77,38 @@ namespace CameraCardGame
         }
 
         public int health { get { return _health; } set { this._health = value; } }
-        public int manaCristals { get { return _manaCristals; } set { this._manaCristals = value; } }
+
+        public int getManaCristals()
+        {
+            return manaCristals;
+        }
+
         public bool useMana(int value)
         {
-            if(_manaCristals - value < 0) return false;
+            if(manaCristals - value < 0) return false;
             else
             {
-                _manaCristals -= value;
+                manaCristals -= value;
                 return true;
+            }
+        }
+
+        public void addCristal(int a = 0)
+        {
+            if (a > 0)
+            {
+                manaCristals = ++manaCristalsCopy + a;
+            }
+            else
+            {
+                if (manaCristalsCopy < 10)
+                {
+                    manaCristals = ++manaCristalsCopy;
+                }
+                else
+                {
+                    manaCristals = manaCristalsCopy;
+                }
             }
         }
     }
