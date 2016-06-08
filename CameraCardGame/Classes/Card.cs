@@ -19,6 +19,7 @@ namespace CameraCardGame
         private int manaCristals;
         private bool isTaunt { get; set; }
         private int onTableId;
+        private bool cardUsed;
         private String cardType;
 
         public Card(Card card)
@@ -31,6 +32,7 @@ namespace CameraCardGame
             this.isTaunt = card.isTaunt;
             this.cardType = card.cardType;
             this.onTableId = card.onTableId;
+            this.cardUsed = card.cardUsed;
 
             this.picture = card.picture;
         }
@@ -45,6 +47,7 @@ namespace CameraCardGame
             this.isTaunt = isTaunt == "true";
             this.cardType = cardType;
             this.onTableId = -1;
+            this.cardUsed = false;
 
             if (name != "main_hero") { 
                 this.picture = Image.FromFile("Assets/Cards/" + name + ".png"); 
@@ -56,9 +59,25 @@ namespace CameraCardGame
             return this.onTableId;
         }
 
+        public bool getCardUsageStatus()
+        {
+            return this.cardUsed;
+        }
+
+        public void setCardUsed()
+        {
+            this.cardUsed = true;
+        }
+
+        public void setCardNotUsed()
+        {
+            this.cardUsed = false;
+        }
+
         public void takeHealth(int value)
         {
             this.health -= value;
+            if (this.health < 0) this.health = 0;
         }
 
         public void setOntableId(int onTableId)

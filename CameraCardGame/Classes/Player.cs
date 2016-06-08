@@ -35,6 +35,14 @@ namespace CameraCardGame
             return null;
         }
 
+        public void unlockCards()
+        {
+            for (int i = 0; i < this.cards.Count; ++i)
+            {
+                cards[i].setCardNotUsed();
+            }
+        }
+
         public void removeCard(Card card)
         {
             if (card.getId() == 0 || card.getId() == 8) return; 
@@ -74,6 +82,8 @@ namespace CameraCardGame
         public void takeCard()
         {
             this.cardsLeft--;
+
+            if (this.cardsLeft < 0) this.cardsLeft = 0;
         }
 
         public int getManaCristals()

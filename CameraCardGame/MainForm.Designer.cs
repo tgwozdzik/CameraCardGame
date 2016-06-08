@@ -81,6 +81,9 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.player2card8 = new System.Windows.Forms.PictureBox();
             this.player1card0 = new System.Windows.Forms.PictureBox();
+            this.congratulation = new System.Windows.Forms.Label();
+            this.yourTurnPlayer1 = new System.Windows.Forms.Label();
+            this.yourTurnPlayer2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.player2card4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player2card2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player2card1)).BeginInit();
@@ -764,6 +767,47 @@
             this.player1card0.TabStop = false;
             this.player1card0.Click += new System.EventHandler(this.selectCard);
             // 
+            // congratulation
+            // 
+            this.congratulation.AutoSize = true;
+            this.congratulation.BackColor = System.Drawing.Color.Transparent;
+            this.congratulation.Font = new System.Drawing.Font("Bell MT", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.congratulation.ForeColor = System.Drawing.Color.OrangeRed;
+            this.congratulation.Location = new System.Drawing.Point(452, 201);
+            this.congratulation.Name = "congratulation";
+            this.congratulation.Size = new System.Drawing.Size(303, 54);
+            this.congratulation.TabIndex = 59;
+            this.congratulation.Text = "Player1 wins! ";
+            this.congratulation.Visible = false;
+            // 
+            // yourTurnPlayer1
+            // 
+            this.yourTurnPlayer1.AutoSize = true;
+            this.yourTurnPlayer1.BackColor = System.Drawing.Color.Transparent;
+            this.yourTurnPlayer1.Font = new System.Drawing.Font("Bell MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.yourTurnPlayer1.ForeColor = System.Drawing.Color.OrangeRed;
+            this.yourTurnPlayer1.Location = new System.Drawing.Point(554, 2);
+            this.yourTurnPlayer1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.yourTurnPlayer1.Name = "yourTurnPlayer1";
+            this.yourTurnPlayer1.Size = new System.Drawing.Size(90, 22);
+            this.yourTurnPlayer1.TabIndex = 60;
+            this.yourTurnPlayer1.Text = "Your turn";
+            this.yourTurnPlayer1.Visible = false;
+            // 
+            // yourTurnPlayer2
+            // 
+            this.yourTurnPlayer2.AutoSize = true;
+            this.yourTurnPlayer2.BackColor = System.Drawing.Color.Transparent;
+            this.yourTurnPlayer2.Font = new System.Drawing.Font("Bell MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.yourTurnPlayer2.ForeColor = System.Drawing.Color.OrangeRed;
+            this.yourTurnPlayer2.Location = new System.Drawing.Point(554, 650);
+            this.yourTurnPlayer2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.yourTurnPlayer2.Name = "yourTurnPlayer2";
+            this.yourTurnPlayer2.Size = new System.Drawing.Size(90, 22);
+            this.yourTurnPlayer2.TabIndex = 61;
+            this.yourTurnPlayer2.Text = "Your turn";
+            this.yourTurnPlayer2.Visible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -772,6 +816,9 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1200, 700);
             this.ControlBox = false;
+            this.Controls.Add(this.yourTurnPlayer2);
+            this.Controls.Add(this.yourTurnPlayer1);
+            this.Controls.Add(this.congratulation);
             this.Controls.Add(this.player2Health);
             this.Controls.Add(this.player1Health);
             this.Controls.Add(this.player1card0);
@@ -905,6 +952,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox player2card8;
         private System.Windows.Forms.PictureBox player1card0;
+        private System.Windows.Forms.Label congratulation;
+        private System.Windows.Forms.Label yourTurnPlayer1;
+        private System.Windows.Forms.Label yourTurnPlayer2;
     }
 }
 
