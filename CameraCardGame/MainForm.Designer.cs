@@ -104,6 +104,34 @@
             this.player2cristal3 = new System.Windows.Forms.PictureBox();
             this.player2cristal2 = new System.Windows.Forms.PictureBox();
             this.player2cristal1 = new System.Windows.Forms.PictureBox();
+            this.player2card1attack = new System.Windows.Forms.Label();
+            this.player2card1health = new System.Windows.Forms.Label();
+            this.player2card2health = new System.Windows.Forms.Label();
+            this.player2card2attack = new System.Windows.Forms.Label();
+            this.player2card4health = new System.Windows.Forms.Label();
+            this.player2card4attack = new System.Windows.Forms.Label();
+            this.player2card6health = new System.Windows.Forms.Label();
+            this.player2card6attack = new System.Windows.Forms.Label();
+            this.player2card3health = new System.Windows.Forms.Label();
+            this.player2card3attack = new System.Windows.Forms.Label();
+            this.player2card5health = new System.Windows.Forms.Label();
+            this.player2card5attack = new System.Windows.Forms.Label();
+            this.player2card7health = new System.Windows.Forms.Label();
+            this.player2card7attack = new System.Windows.Forms.Label();
+            this.player1card1health = new System.Windows.Forms.Label();
+            this.player1card1attack = new System.Windows.Forms.Label();
+            this.player1card3health = new System.Windows.Forms.Label();
+            this.player1card3attack = new System.Windows.Forms.Label();
+            this.player1card5health = new System.Windows.Forms.Label();
+            this.player1card5attack = new System.Windows.Forms.Label();
+            this.player1card7health = new System.Windows.Forms.Label();
+            this.player1card7attack = new System.Windows.Forms.Label();
+            this.player1card2health = new System.Windows.Forms.Label();
+            this.player1card2attack = new System.Windows.Forms.Label();
+            this.player1card4health = new System.Windows.Forms.Label();
+            this.player1card4attack = new System.Windows.Forms.Label();
+            this.player1card6health = new System.Windows.Forms.Label();
+            this.player1card6attack = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.player2card4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player2card2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player2card1)).BeginInit();
@@ -521,8 +549,8 @@
             // player2card1
             // 
             this.player2card1.BackColor = System.Drawing.Color.Transparent;
-            this.player2card1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.player2card1.Location = new System.Drawing.Point(549, 331);
+            this.player2card1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.player2card1.Location = new System.Drawing.Point(548, 331);
             this.player2card1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.player2card1.Name = "player2card1";
             this.player2card1.Size = new System.Drawing.Size(104, 130);
@@ -1068,6 +1096,276 @@
             this.player2cristal1.TabIndex = 72;
             this.player2cristal1.TabStop = false;
             // 
+            // player2card1attack
+            // 
+            this.player2card1attack.BackColor = System.Drawing.Color.Transparent;
+            this.player2card1attack.Location = new System.Drawing.Point(554, 436);
+            this.player2card1attack.Name = "player2card1attack";
+            this.player2card1attack.Size = new System.Drawing.Size(24, 21);
+            this.player2card1attack.TabIndex = 82;
+            this.player2card1attack.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.player2card1attack.Visible = false;
+            // 
+            // player2card1health
+            // 
+            this.player2card1health.BackColor = System.Drawing.Color.Transparent;
+            this.player2card1health.Location = new System.Drawing.Point(628, 437);
+            this.player2card1health.Name = "player2card1health";
+            this.player2card1health.Size = new System.Drawing.Size(24, 21);
+            this.player2card1health.TabIndex = 83;
+            this.player2card1health.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.player2card1health.Visible = false;
+            // 
+            // player2card2health
+            // 
+            this.player2card2health.BackColor = System.Drawing.Color.Transparent;
+            this.player2card2health.Location = new System.Drawing.Point(522, 447);
+            this.player2card2health.Name = "player2card2health";
+            this.player2card2health.Size = new System.Drawing.Size(24, 21);
+            this.player2card2health.TabIndex = 85;
+            this.player2card2health.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // player2card2attack
+            // 
+            this.player2card2attack.BackColor = System.Drawing.Color.Transparent;
+            this.player2card2attack.Location = new System.Drawing.Point(448, 446);
+            this.player2card2attack.Name = "player2card2attack";
+            this.player2card2attack.Size = new System.Drawing.Size(24, 21);
+            this.player2card2attack.TabIndex = 84;
+            this.player2card2attack.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // player2card4health
+            // 
+            this.player2card4health.BackColor = System.Drawing.Color.Transparent;
+            this.player2card4health.Location = new System.Drawing.Point(416, 459);
+            this.player2card4health.Name = "player2card4health";
+            this.player2card4health.Size = new System.Drawing.Size(24, 21);
+            this.player2card4health.TabIndex = 87;
+            this.player2card4health.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // player2card4attack
+            // 
+            this.player2card4attack.BackColor = System.Drawing.Color.Transparent;
+            this.player2card4attack.Location = new System.Drawing.Point(342, 458);
+            this.player2card4attack.Name = "player2card4attack";
+            this.player2card4attack.Size = new System.Drawing.Size(24, 21);
+            this.player2card4attack.TabIndex = 86;
+            this.player2card4attack.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // player2card6health
+            // 
+            this.player2card6health.BackColor = System.Drawing.Color.Transparent;
+            this.player2card6health.Location = new System.Drawing.Point(309, 468);
+            this.player2card6health.Name = "player2card6health";
+            this.player2card6health.Size = new System.Drawing.Size(24, 21);
+            this.player2card6health.TabIndex = 89;
+            this.player2card6health.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // player2card6attack
+            // 
+            this.player2card6attack.BackColor = System.Drawing.Color.Transparent;
+            this.player2card6attack.Location = new System.Drawing.Point(235, 467);
+            this.player2card6attack.Name = "player2card6attack";
+            this.player2card6attack.Size = new System.Drawing.Size(24, 21);
+            this.player2card6attack.TabIndex = 88;
+            this.player2card6attack.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // player2card3health
+            // 
+            this.player2card3health.BackColor = System.Drawing.Color.Transparent;
+            this.player2card3health.Location = new System.Drawing.Point(734, 448);
+            this.player2card3health.Name = "player2card3health";
+            this.player2card3health.Size = new System.Drawing.Size(24, 21);
+            this.player2card3health.TabIndex = 91;
+            this.player2card3health.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.player2card3health.Visible = false;
+            // 
+            // player2card3attack
+            // 
+            this.player2card3attack.BackColor = System.Drawing.Color.Transparent;
+            this.player2card3attack.Location = new System.Drawing.Point(660, 447);
+            this.player2card3attack.Name = "player2card3attack";
+            this.player2card3attack.Size = new System.Drawing.Size(24, 21);
+            this.player2card3attack.TabIndex = 90;
+            this.player2card3attack.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.player2card3attack.Visible = false;
+            // 
+            // player2card5health
+            // 
+            this.player2card5health.BackColor = System.Drawing.Color.Transparent;
+            this.player2card5health.Location = new System.Drawing.Point(840, 458);
+            this.player2card5health.Name = "player2card5health";
+            this.player2card5health.Size = new System.Drawing.Size(24, 21);
+            this.player2card5health.TabIndex = 93;
+            this.player2card5health.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // player2card5attack
+            // 
+            this.player2card5attack.BackColor = System.Drawing.Color.Transparent;
+            this.player2card5attack.Location = new System.Drawing.Point(766, 457);
+            this.player2card5attack.Name = "player2card5attack";
+            this.player2card5attack.Size = new System.Drawing.Size(24, 21);
+            this.player2card5attack.TabIndex = 92;
+            this.player2card5attack.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // player2card7health
+            // 
+            this.player2card7health.BackColor = System.Drawing.Color.Transparent;
+            this.player2card7health.Location = new System.Drawing.Point(946, 478);
+            this.player2card7health.Name = "player2card7health";
+            this.player2card7health.Size = new System.Drawing.Size(24, 21);
+            this.player2card7health.TabIndex = 95;
+            this.player2card7health.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // player2card7attack
+            // 
+            this.player2card7attack.BackColor = System.Drawing.Color.Transparent;
+            this.player2card7attack.Location = new System.Drawing.Point(872, 477);
+            this.player2card7attack.Name = "player2card7attack";
+            this.player2card7attack.Size = new System.Drawing.Size(24, 21);
+            this.player2card7attack.TabIndex = 94;
+            this.player2card7attack.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // player1card1health
+            // 
+            this.player1card1health.BackColor = System.Drawing.Color.Transparent;
+            this.player1card1health.Location = new System.Drawing.Point(629, 297);
+            this.player1card1health.Name = "player1card1health";
+            this.player1card1health.Size = new System.Drawing.Size(24, 21);
+            this.player1card1health.TabIndex = 97;
+            this.player1card1health.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.player1card1health.Visible = false;
+            // 
+            // player1card1attack
+            // 
+            this.player1card1attack.BackColor = System.Drawing.Color.Transparent;
+            this.player1card1attack.Location = new System.Drawing.Point(555, 296);
+            this.player1card1attack.Name = "player1card1attack";
+            this.player1card1attack.Size = new System.Drawing.Size(24, 21);
+            this.player1card1attack.TabIndex = 96;
+            this.player1card1attack.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.player1card1attack.Visible = false;
+            // 
+            // player1card3health
+            // 
+            this.player1card3health.BackColor = System.Drawing.Color.Transparent;
+            this.player1card3health.Location = new System.Drawing.Point(734, 287);
+            this.player1card3health.Name = "player1card3health";
+            this.player1card3health.Size = new System.Drawing.Size(24, 21);
+            this.player1card3health.TabIndex = 99;
+            this.player1card3health.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.player1card3health.Visible = false;
+            // 
+            // player1card3attack
+            // 
+            this.player1card3attack.BackColor = System.Drawing.Color.Transparent;
+            this.player1card3attack.Location = new System.Drawing.Point(660, 286);
+            this.player1card3attack.Name = "player1card3attack";
+            this.player1card3attack.Size = new System.Drawing.Size(24, 21);
+            this.player1card3attack.TabIndex = 98;
+            this.player1card3attack.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.player1card3attack.Visible = false;
+            // 
+            // player1card5health
+            // 
+            this.player1card5health.BackColor = System.Drawing.Color.Transparent;
+            this.player1card5health.Location = new System.Drawing.Point(840, 277);
+            this.player1card5health.Name = "player1card5health";
+            this.player1card5health.Size = new System.Drawing.Size(24, 21);
+            this.player1card5health.TabIndex = 101;
+            this.player1card5health.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.player1card5health.Visible = false;
+            // 
+            // player1card5attack
+            // 
+            this.player1card5attack.BackColor = System.Drawing.Color.Transparent;
+            this.player1card5attack.Location = new System.Drawing.Point(766, 276);
+            this.player1card5attack.Name = "player1card5attack";
+            this.player1card5attack.Size = new System.Drawing.Size(24, 21);
+            this.player1card5attack.TabIndex = 100;
+            this.player1card5attack.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.player1card5attack.Visible = false;
+            // 
+            // player1card7health
+            // 
+            this.player1card7health.BackColor = System.Drawing.Color.Transparent;
+            this.player1card7health.Location = new System.Drawing.Point(946, 267);
+            this.player1card7health.Name = "player1card7health";
+            this.player1card7health.Size = new System.Drawing.Size(24, 21);
+            this.player1card7health.TabIndex = 103;
+            this.player1card7health.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.player1card7health.Visible = false;
+            // 
+            // player1card7attack
+            // 
+            this.player1card7attack.BackColor = System.Drawing.Color.Transparent;
+            this.player1card7attack.Location = new System.Drawing.Point(872, 266);
+            this.player1card7attack.Name = "player1card7attack";
+            this.player1card7attack.Size = new System.Drawing.Size(24, 21);
+            this.player1card7attack.TabIndex = 102;
+            this.player1card7attack.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.player1card7attack.Visible = false;
+            // 
+            // player1card2health
+            // 
+            this.player1card2health.BackColor = System.Drawing.Color.Transparent;
+            this.player1card2health.Location = new System.Drawing.Point(522, 288);
+            this.player1card2health.Name = "player1card2health";
+            this.player1card2health.Size = new System.Drawing.Size(24, 21);
+            this.player1card2health.TabIndex = 105;
+            this.player1card2health.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.player1card2health.Visible = false;
+            // 
+            // player1card2attack
+            // 
+            this.player1card2attack.BackColor = System.Drawing.Color.Transparent;
+            this.player1card2attack.Location = new System.Drawing.Point(448, 287);
+            this.player1card2attack.Name = "player1card2attack";
+            this.player1card2attack.Size = new System.Drawing.Size(24, 21);
+            this.player1card2attack.TabIndex = 104;
+            this.player1card2attack.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.player1card2attack.Visible = false;
+            // 
+            // player1card4health
+            // 
+            this.player1card4health.BackColor = System.Drawing.Color.Transparent;
+            this.player1card4health.Location = new System.Drawing.Point(416, 277);
+            this.player1card4health.Name = "player1card4health";
+            this.player1card4health.Size = new System.Drawing.Size(24, 21);
+            this.player1card4health.TabIndex = 107;
+            this.player1card4health.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.player1card4health.Visible = false;
+            // 
+            // player1card4attack
+            // 
+            this.player1card4attack.BackColor = System.Drawing.Color.Transparent;
+            this.player1card4attack.Location = new System.Drawing.Point(342, 276);
+            this.player1card4attack.Name = "player1card4attack";
+            this.player1card4attack.Size = new System.Drawing.Size(24, 21);
+            this.player1card4attack.TabIndex = 106;
+            this.player1card4attack.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.player1card4attack.Visible = false;
+            // 
+            // player1card6health
+            // 
+            this.player1card6health.BackColor = System.Drawing.Color.Transparent;
+            this.player1card6health.Location = new System.Drawing.Point(310, 267);
+            this.player1card6health.Name = "player1card6health";
+            this.player1card6health.Size = new System.Drawing.Size(24, 21);
+            this.player1card6health.TabIndex = 109;
+            this.player1card6health.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.player1card6health.Visible = false;
+            // 
+            // player1card6attack
+            // 
+            this.player1card6attack.BackColor = System.Drawing.Color.Transparent;
+            this.player1card6attack.Location = new System.Drawing.Point(236, 266);
+            this.player1card6attack.Name = "player1card6attack";
+            this.player1card6attack.Size = new System.Drawing.Size(24, 21);
+            this.player1card6attack.TabIndex = 108;
+            this.player1card6attack.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.player1card6attack.Visible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1076,6 +1374,34 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1200, 700);
             this.ControlBox = false;
+            this.Controls.Add(this.player1card6health);
+            this.Controls.Add(this.player1card6attack);
+            this.Controls.Add(this.player1card4health);
+            this.Controls.Add(this.player1card4attack);
+            this.Controls.Add(this.player1card2health);
+            this.Controls.Add(this.player1card2attack);
+            this.Controls.Add(this.player1card7health);
+            this.Controls.Add(this.player1card7attack);
+            this.Controls.Add(this.player1card5health);
+            this.Controls.Add(this.player1card5attack);
+            this.Controls.Add(this.player1card3health);
+            this.Controls.Add(this.player1card3attack);
+            this.Controls.Add(this.player1card1health);
+            this.Controls.Add(this.player1card1attack);
+            this.Controls.Add(this.player2card7health);
+            this.Controls.Add(this.player2card7attack);
+            this.Controls.Add(this.player2card5health);
+            this.Controls.Add(this.player2card5attack);
+            this.Controls.Add(this.player2card3health);
+            this.Controls.Add(this.player2card3attack);
+            this.Controls.Add(this.player2card6health);
+            this.Controls.Add(this.player2card6attack);
+            this.Controls.Add(this.player2card4health);
+            this.Controls.Add(this.player2card4attack);
+            this.Controls.Add(this.player2card2health);
+            this.Controls.Add(this.player2card2attack);
+            this.Controls.Add(this.player2card1health);
+            this.Controls.Add(this.player2card1attack);
             this.Controls.Add(this.player2cristal9);
             this.Controls.Add(this.player2cristal6);
             this.Controls.Add(this.player2cristal10);
@@ -1275,6 +1601,34 @@
         private System.Windows.Forms.PictureBox player2cristal3;
         private System.Windows.Forms.PictureBox player2cristal2;
         private System.Windows.Forms.PictureBox player2cristal1;
+        private System.Windows.Forms.Label player2card1attack;
+        private System.Windows.Forms.Label player2card1health;
+        private System.Windows.Forms.Label player2card2health;
+        private System.Windows.Forms.Label player2card2attack;
+        private System.Windows.Forms.Label player2card4health;
+        private System.Windows.Forms.Label player2card4attack;
+        private System.Windows.Forms.Label player2card6health;
+        private System.Windows.Forms.Label player2card6attack;
+        private System.Windows.Forms.Label player2card3health;
+        private System.Windows.Forms.Label player2card3attack;
+        private System.Windows.Forms.Label player2card5health;
+        private System.Windows.Forms.Label player2card5attack;
+        private System.Windows.Forms.Label player2card7health;
+        private System.Windows.Forms.Label player2card7attack;
+        private System.Windows.Forms.Label player1card1health;
+        private System.Windows.Forms.Label player1card1attack;
+        private System.Windows.Forms.Label player1card3health;
+        private System.Windows.Forms.Label player1card3attack;
+        private System.Windows.Forms.Label player1card5health;
+        private System.Windows.Forms.Label player1card5attack;
+        private System.Windows.Forms.Label player1card7health;
+        private System.Windows.Forms.Label player1card7attack;
+        private System.Windows.Forms.Label player1card2health;
+        private System.Windows.Forms.Label player1card2attack;
+        private System.Windows.Forms.Label player1card4health;
+        private System.Windows.Forms.Label player1card4attack;
+        private System.Windows.Forms.Label player1card6health;
+        private System.Windows.Forms.Label player1card6attack;
     }
 }
 

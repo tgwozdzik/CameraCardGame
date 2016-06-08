@@ -45,6 +45,148 @@ namespace CameraCardGame
             endTurn.Parent = pictureBox1;
             endTurn.Location = pos;
 
+            pos = this.PointToScreen(player2card1attack.Location);
+            pos = player2card1.PointToClient(pos);
+            player2card1attack.Parent = player2card1;
+            player2card1attack.Location = pos;
+
+            pos = this.PointToScreen(player2card1health.Location);
+            pos = player2card1.PointToClient(pos);
+            player2card1health.Parent = player2card1;
+            player2card1health.Location = pos;
+
+            pos = this.PointToScreen(player2card2attack.Location);
+            pos = player2card2.PointToClient(pos);
+            player2card2attack.Parent = player2card2;
+            player2card2attack.Location = pos;
+
+            pos = this.PointToScreen(player2card2health.Location);
+            pos = player2card2.PointToClient(pos);
+            player2card2health.Parent = player2card2;
+            player2card2health.Location = pos;
+
+            pos = this.PointToScreen(player2card3attack.Location);
+            pos = player2card3.PointToClient(pos);
+            player2card3attack.Parent = player2card3;
+            player2card3attack.Location = pos;
+
+            pos = this.PointToScreen(player2card3health.Location);
+            pos = player2card3.PointToClient(pos);
+            player2card3health.Parent = player2card3;
+            player2card3health.Location = pos;
+
+            pos = this.PointToScreen(player2card4attack.Location);
+            pos = player2card4.PointToClient(pos);
+            player2card4attack.Parent = player2card4;
+            player2card4attack.Location = pos;
+
+            pos = this.PointToScreen(player2card4health.Location);
+            pos = player2card4.PointToClient(pos);
+            player2card4health.Parent = player2card4;
+            player2card4health.Location = pos;
+
+            pos = this.PointToScreen(player2card5attack.Location);
+            pos = player2card5.PointToClient(pos);
+            player2card5attack.Parent = player2card5;
+            player2card5attack.Location = pos;
+
+            pos = this.PointToScreen(player2card5health.Location);
+            pos = player2card5.PointToClient(pos);
+            player2card5health.Parent = player2card5;
+            player2card5health.Location = pos;
+
+            pos = this.PointToScreen(player2card6attack.Location);
+            pos = player2card6.PointToClient(pos);
+            player2card6attack.Parent = player2card6;
+            player2card6attack.Location = pos;
+
+            pos = this.PointToScreen(player2card6health.Location);
+            pos = player2card6.PointToClient(pos);
+            player2card6health.Parent = player2card6;
+            player2card6health.Location = pos;
+
+            pos = this.PointToScreen(player2card7attack.Location);
+            pos = player2card7.PointToClient(pos);
+            player2card7attack.Parent = player2card7;
+            player2card7attack.Location = pos;
+
+            pos = this.PointToScreen(player2card7health.Location);
+            pos = player2card7.PointToClient(pos);
+            player2card7health.Parent = player2card7;
+            player2card7health.Location = pos;
+
+
+
+            pos = this.PointToScreen(player1card1attack.Location);
+            pos = player1card1.PointToClient(pos);
+            player1card1attack.Parent = player1card1;
+            player1card1attack.Location = pos;
+
+            pos = this.PointToScreen(player1card1health.Location);
+            pos = player1card1.PointToClient(pos);
+            player1card1health.Parent = player1card1;
+            player1card1health.Location = pos;
+
+            pos = this.PointToScreen(player1card2attack.Location);
+            pos = player1card2.PointToClient(pos);
+            player1card2attack.Parent = player1card2;
+            player1card2attack.Location = pos;
+
+            pos = this.PointToScreen(player1card2health.Location);
+            pos = player1card2.PointToClient(pos);
+            player1card2health.Parent = player1card2;
+            player1card2health.Location = pos;
+
+            pos = this.PointToScreen(player1card3attack.Location);
+            pos = player1card3.PointToClient(pos);
+            player1card3attack.Parent = player1card3;
+            player1card3attack.Location = pos;
+
+            pos = this.PointToScreen(player1card3health.Location);
+            pos = player1card3.PointToClient(pos);
+            player1card3health.Parent = player1card3;
+            player1card3health.Location = pos;
+
+            pos = this.PointToScreen(player1card4attack.Location);
+            pos = player1card4.PointToClient(pos);
+            player1card4attack.Parent = player1card4;
+            player1card4attack.Location = pos;
+
+            pos = this.PointToScreen(player1card4health.Location);
+            pos = player1card4.PointToClient(pos);
+            player1card4health.Parent = player1card4;
+            player1card4health.Location = pos;
+
+            pos = this.PointToScreen(player1card5attack.Location);
+            pos = player1card5.PointToClient(pos);
+            player1card5attack.Parent = player1card5;
+            player1card5attack.Location = pos;
+
+            pos = this.PointToScreen(player1card5health.Location);
+            pos = player1card5.PointToClient(pos);
+            player1card5health.Parent = player1card5;
+            player1card5health.Location = pos;
+
+            pos = this.PointToScreen(player1card6attack.Location);
+            pos = player1card6.PointToClient(pos);
+            player1card6attack.Parent = player1card6;
+            player1card6attack.Location = pos;
+
+            pos = this.PointToScreen(player1card6health.Location);
+            pos = player1card6.PointToClient(pos);
+            player1card6health.Parent = player1card6;
+            player1card6health.Location = pos;
+
+            pos = this.PointToScreen(player1card7attack.Location);
+            pos = player1card7.PointToClient(pos);
+            player1card7attack.Parent = player1card7;
+            player1card7attack.Location = pos;
+
+            pos = this.PointToScreen(player1card7health.Location);
+            pos = player1card7.PointToClient(pos);
+            player1card7health.Parent = player1card7;
+            player1card7health.Location = pos;
+
             hideCards();
         }
 
@@ -85,39 +227,95 @@ namespace CameraCardGame
         }
         private void showCards()
         {
-            player1card1.Visible = true;
-            player1card2.Visible = true;
-            player1card3.Visible = true;
-            player1card4.Visible = true;
-            player1card5.Visible = true;
-            player1card6.Visible = true;
-            player1card7.Visible = true;
-
             player2card1.Visible = true;
+            player2card1attack.Visible = true;
+            player2card1health.Visible = true;
             player2card2.Visible = true;
+            player2card2attack.Visible = true;
+            player2card2health.Visible = true;
             player2card3.Visible = true;
+            player2card3attack.Visible = true;
+            player2card3health.Visible = true;
             player2card4.Visible = true;
+            player2card4attack.Visible = true;
+            player2card4health.Visible = true;
             player2card5.Visible = true;
+            player2card5attack.Visible = true;
+            player2card5health.Visible = true;
             player2card6.Visible = true;
+            player2card6attack.Visible = true;
+            player2card6health.Visible = true;
             player2card7.Visible = true;
+            player2card7attack.Visible = true;
+            player2card7health.Visible = true;
+
+            player1card1.Visible = true;
+            player1card1attack.Visible = true;
+            player1card1health.Visible = true;
+            player1card2.Visible = true;
+            player1card2attack.Visible = true;
+            player1card2health.Visible = true;
+            player1card3.Visible = true;
+            player1card3attack.Visible = true;
+            player1card3health.Visible = true;
+            player1card4.Visible = true;
+            player1card4attack.Visible = true;
+            player1card4health.Visible = true;
+            player1card5.Visible = true;
+            player1card5attack.Visible = true;
+            player1card5health.Visible = true;
+            player1card6.Visible = true;
+            player1card6attack.Visible = true;
+            player1card6health.Visible = true;
+            player1card7.Visible = true;
+            player1card7attack.Visible = true;
+            player1card7health.Visible = true;
         }
         private void hideCards()
         {
-            player1card1.Visible = false;
-            player1card2.Visible = false;
-            player1card3.Visible = false;
-            player1card4.Visible = false;
-            player1card5.Visible = false;
-            player1card6.Visible = false;
-            player1card7.Visible = false;
-
             player2card1.Visible = false;
+            player2card1attack.Visible = false;
+            player2card1health.Visible = false;
             player2card2.Visible = false;
+            player2card2attack.Visible = false;
+            player2card2health.Visible = false;
             player2card3.Visible = false;
+            player2card3attack.Visible = false;
+            player2card3health.Visible = false;
             player2card4.Visible = false;
+            player2card4attack.Visible = false;
+            player2card4health.Visible = false;
             player2card5.Visible = false;
+            player2card5attack.Visible = false;
+            player2card5health.Visible = false;
             player2card6.Visible = false;
+            player2card6attack.Visible = false;
+            player2card6health.Visible = false;
             player2card7.Visible = false;
+            player2card7attack.Visible = false;
+            player2card7health.Visible = false;
+
+            player1card1.Visible = false;
+            player1card1attack.Visible = false;
+            player1card1health.Visible = false;
+            player1card2.Visible = false;
+            player1card2attack.Visible = false;
+            player1card2health.Visible = false;
+            player1card3.Visible = false;
+            player1card3attack.Visible = false;
+            player1card3health.Visible = false;
+            player1card4.Visible = false;
+            player1card4attack.Visible = false;
+            player1card4health.Visible = false;
+            player1card5.Visible = false;
+            player1card5attack.Visible = false;
+            player1card5health.Visible = false;
+            player1card6.Visible = false;
+            player1card6attack.Visible = false;
+            player1card6health.Visible = false;
+            player1card7.Visible = false;
+            player1card7attack.Visible = false;
+            player1card7health.Visible = false;
         }
         private void hideMenu()
         {
@@ -163,20 +361,48 @@ namespace CameraCardGame
         private void cleanAllCards()
         {
             player1card1.Image = null;
+            player1card1attack.Text = "";
+            player1card1health.Text = "";
             player1card2.Image = null;
+            player1card2attack.Text = "";
+            player1card2health.Text = "";
             player1card3.Image = null;
+            player1card3attack.Text = "";
+            player1card3health.Text = "";
             player1card4.Image = null;
+            player1card4attack.Text = "";
+            player1card4health.Text = "";
             player1card5.Image = null;
+            player1card5attack.Text = "";
+            player1card5health.Text = "";
             player1card6.Image = null;
+            player1card6attack.Text = "";
+            player1card6health.Text = "";
             player1card7.Image = null;
+            player1card7attack.Text = "";
+            player1card7health.Text = "";
             
             player2card1.Image = null;
+            player2card1attack.Text = "";
+            player2card1health.Text = "";
             player2card2.Image = null;
+            player2card2attack.Text = "";
+            player2card2health.Text = "";
             player2card3.Image = null;
+            player2card3attack.Text = "";
+            player2card3health.Text = "";
             player2card4.Image = null;
+            player2card4attack.Text = "";
+            player2card4health.Text = "";
             player2card5.Image = null;
+            player2card5attack.Text = "";
+            player2card5health.Text = "";
             player2card6.Image = null;
+            player2card6attack.Text = "";
+            player2card6health.Text = "";
             player2card7.Image = null;
+            player2card7attack.Text = "";
+            player2card7health.Text = "";
         }
         private void StartNewGame()
         {
@@ -336,6 +562,7 @@ namespace CameraCardGame
         }
         private void showWinnerMenu(string winner)
         {
+            hideCards();
             showMenuButton.Visible = false;
             optionConnectButton.Visible = true;
             optionConnectButton.Text = "New Game";
@@ -700,6 +927,10 @@ namespace CameraCardGame
                 card.setOntableId(1);
                 player1card1.Image = card.getPicture();
                 player1card1.Visible = true;
+                player1card1attack.Visible = true;
+                player1card1health.Visible = true;
+                player1card1attack.Text = card.getAttack().ToString();
+                player1card1health.Text = card.getHealth().ToString();
                 return;
             }
 
@@ -709,6 +940,10 @@ namespace CameraCardGame
                 card.setOntableId(2);
                 player1card2.Image = card.getPicture();
                 player1card2.Visible = true;
+                player1card2attack.Visible = true;
+                player1card2health.Visible = true;
+                player1card2attack.Text = card.getAttack().ToString();
+                player1card2health.Text = card.getHealth().ToString();
                 return;
             }
 
@@ -718,6 +953,10 @@ namespace CameraCardGame
                 card.setOntableId(3);
                 player1card3.Image = card.getPicture();
                 player1card3.Visible = true;
+                player1card3attack.Visible = true;
+                player1card3health.Visible = true;
+                player1card3attack.Text = card.getAttack().ToString();
+                player1card3health.Text = card.getHealth().ToString();
                 return;
             }
 
@@ -727,6 +966,10 @@ namespace CameraCardGame
                 card.setOntableId(4);
                 player1card4.Image = card.getPicture();
                 player1card4.Visible = true;
+                player1card4attack.Visible = true;
+                player1card4health.Visible = true;
+                player1card4attack.Text = card.getAttack().ToString();
+                player1card4health.Text = card.getHealth().ToString();
                 return;
             }
 
@@ -736,6 +979,10 @@ namespace CameraCardGame
                 card.setOntableId(5);
                 player1card5.Image = card.getPicture();
                 player1card5.Visible = true;
+                player1card5attack.Visible = true;
+                player1card5health.Visible = true;
+                player1card5attack.Text = card.getAttack().ToString();
+                player1card5health.Text = card.getHealth().ToString();
                 return;
             }
 
@@ -745,6 +992,10 @@ namespace CameraCardGame
                 card.setOntableId(6);
                 player1card6.Image = card.getPicture();
                 player1card6.Visible = true;
+                player1card6attack.Visible = true;
+                player1card6health.Visible = true;
+                player1card6attack.Text = card.getAttack().ToString();
+                player1card6health.Text = card.getHealth().ToString();
                 return;
             }
 
@@ -754,6 +1005,10 @@ namespace CameraCardGame
                 card.setOntableId(7);
                 player1card7.Image = card.getPicture();
                 player1card7.Visible = true;
+                player1card7attack.Visible = true;
+                player1card7health.Visible = true;
+                player1card7attack.Text = card.getAttack().ToString();
+                player1card7health.Text = card.getHealth().ToString();
                 return;
             }
         }
@@ -765,6 +1020,10 @@ namespace CameraCardGame
                 card.setOntableId(1);
                 player2card1.Image = card.getPicture();
                 player2card1.Visible = true;
+                player2card1attack.Visible = true;
+                player2card1health.Visible = true;
+                player2card1attack.Text = card.getAttack().ToString();
+                player2card1health.Text = card.getHealth().ToString();
                 return;
             }
 
@@ -774,6 +1033,10 @@ namespace CameraCardGame
                 card.setOntableId(2);
                 player2card2.Image = card.getPicture();
                 player2card2.Visible = true;
+                player2card2attack.Visible = true;
+                player2card2health.Visible = true;
+                player2card2attack.Text = card.getAttack().ToString();
+                player2card2health.Text = card.getHealth().ToString();
                 return;
             }
 
@@ -783,6 +1046,10 @@ namespace CameraCardGame
                 card.setOntableId(3);
                 player2card3.Image = card.getPicture();
                 player2card3.Visible = true;
+                player2card3attack.Visible = true;
+                player2card3health.Visible = true;
+                player2card3attack.Text = card.getAttack().ToString();
+                player2card3health.Text = card.getHealth().ToString();
                 return;
             }
 
@@ -792,6 +1059,10 @@ namespace CameraCardGame
                 card.setOntableId(4);
                 player2card4.Image = card.getPicture();
                 player2card4.Visible = true;
+                player2card4attack.Visible = true;
+                player2card4health.Visible = true;
+                player2card4attack.Text = card.getAttack().ToString();
+                player2card4health.Text = card.getHealth().ToString();
                 return;
             }
 
@@ -801,6 +1072,10 @@ namespace CameraCardGame
                 card.setOntableId(5);
                 player2card5.Image = card.getPicture();
                 player2card5.Visible = true;
+                player2card5attack.Visible = true;
+                player2card5health.Visible = true;
+                player2card5attack.Text = card.getAttack().ToString();
+                player2card5health.Text = card.getHealth().ToString();
                 return;
             }
 
@@ -810,6 +1085,10 @@ namespace CameraCardGame
                 card.setOntableId(6);
                 player2card6.Image = card.getPicture();
                 player2card6.Visible = true;
+                player2card6attack.Visible = true;
+                player2card6health.Visible = true;
+                player2card6attack.Text = card.getAttack().ToString();
+                player2card6health.Text = card.getHealth().ToString();
                 return;
             }
 
@@ -819,30 +1098,60 @@ namespace CameraCardGame
                 card.setOntableId(7);
                 player2card7.Image = card.getPicture();
                 player2card7.Visible = true;
+                player2card7attack.Visible = true;
+                player2card7health.Visible = true;
+                player2card7attack.Text = card.getAttack().ToString();
+                player2card7health.Text = card.getHealth().ToString();
                 return;
             }
         }
         private void updatePlayer1Cards(Card card)
         {
-            if (card.getHealth() <= 0 && card.getId() != 0 && card.getId() != 8)
+            if (card.getId() != 0 && card.getId() != 8)
             {
+                Label labelAttack = (Label)Controls.Find("player1card" + card.getOnTableId().ToString() + "attack", true)[0];
+                Label labelHealth = (Label)Controls.Find("player1card" + card.getOnTableId().ToString() + "health", true)[0];
 
-                PictureBox pictureBox = (PictureBox)Controls.Find("player1card" + card.getOnTableId().ToString(),true)[0];
+                labelAttack.Text = card.getAttack().ToString();
+                labelHealth.Text = card.getHealth().ToString();
 
-                pictureBox.Image = null;
-                pictureBox.MouseEnter -= new System.EventHandler((sender, e) => CardMouseEnter(sender, e, card));
-                pictureBox.Visible = false;
+                if (card.getHealth() <= 0)
+                {
+
+                    PictureBox pictureBox = (PictureBox)Controls.Find("player1card" + card.getOnTableId().ToString(), true)[0];
+
+                    pictureBox.Image = null;
+                    pictureBox.MouseEnter -= new System.EventHandler((sender, e) => CardMouseEnter(sender, e, card));
+                    pictureBox.Visible = false;
+                    labelAttack.Visible = false;
+                    labelHealth.Visible = false;
+                    labelAttack.Text = "";
+                    labelHealth.Text = "";
+                }
             }
         }
         private void updatePlayer2Cards(Card card)
         {
-            if (card.getHealth() <= 0 && card.getId() != 0 && card.getId() != 8)
+            if (card.getId() != 0 && card.getId() != 8)
             {
-                PictureBox pictureBox = (PictureBox)Controls.Find("player2card" + card.getOnTableId().ToString(), true)[0];
+                Label labelAttack = (Label)Controls.Find("player2card" + card.getOnTableId().ToString() + "attack", true)[0];
+                Label labelHealth = (Label)Controls.Find("player2card" + card.getOnTableId().ToString() + "health", true)[0];
 
-                pictureBox.Image = null;
-                pictureBox.MouseEnter -= new System.EventHandler((sender, e) => CardMouseEnter(sender, e, card));
-                pictureBox.Visible = false;
+                labelAttack.Text = card.getAttack().ToString();
+                labelHealth.Text = card.getHealth().ToString();
+
+                if (card.getHealth() <= 0)
+                {
+                    PictureBox pictureBox = (PictureBox)Controls.Find("player2card" + card.getOnTableId().ToString(), true)[0];
+
+                    pictureBox.Image = null;
+                    pictureBox.MouseEnter -= new System.EventHandler((sender, e) => CardMouseEnter(sender, e, card));
+                    pictureBox.Visible = false;
+                    labelAttack.Visible = false;
+                    labelHealth.Visible = false;
+                    labelAttack.Text = "";
+                    labelHealth.Text = "";
+                }
             }
         }
         private void button3_Click(object sender, EventArgs e)
