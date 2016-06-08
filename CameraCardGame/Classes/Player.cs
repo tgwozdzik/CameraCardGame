@@ -25,6 +25,11 @@ namespace CameraCardGame
             return this.cards[0].getHealth();
         }
 
+        public int getMaxManaCristals()
+        {
+            return this.manaCristalsCopy;
+        }
+
         public Card getCardOnTable(int onTableId)
         {
             for (int i = 0; i < this.cards.Count; ++i)

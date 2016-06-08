@@ -211,6 +211,7 @@ namespace CameraCardGame
             hideMenu();
 
             yourTurnPlayer1.Visible = true;
+            yourTurnPlayer2.Visible = false;
 
             gameStatsUpdate.Start();
             player1Timer.Start();
@@ -343,6 +344,69 @@ namespace CameraCardGame
             button3.Visible = true;
             endTurn.Visible = false;
         }
+        private void showPlayersCristals(int player1Cristals, int player2Cristals){
+            if (--player1Cristals >= 0) player1cristal1.Visible = false;
+            else player1cristal1.Visible = true;
+
+            if (--player1Cristals >= 0) player1cristal2.Visible = false;
+            else player1cristal2.Visible = true;
+
+            if (--player1Cristals >= 0) player1cristal3.Visible = false;
+            else player1cristal3.Visible = true;
+
+            if (--player1Cristals >= 0) player1cristal4.Visible = false;
+            else player1cristal4.Visible = true;
+
+            if (--player1Cristals >= 0) player1cristal5.Visible = false;
+            else player1cristal5.Visible = true;
+
+            if (--player1Cristals >= 0) player1cristal6.Visible = false;
+            else player1cristal6.Visible = true;
+
+            if (--player1Cristals >= 0) player1cristal7.Visible = false;
+            else player1cristal7.Visible = true;
+
+            if (--player1Cristals >= 0) player1cristal8.Visible = false;
+            else player1cristal8.Visible = true;
+
+            if (--player1Cristals >= 0) player1cristal9.Visible = false;
+            else player1cristal9.Visible = true;
+
+            if (--player1Cristals >= 0) player1cristal10.Visible = false;
+            else player1cristal10.Visible = true;
+
+
+
+            if (--player2Cristals >= 0) player2cristal1.Visible = false;
+            else player2cristal1.Visible = true;
+
+            if (--player2Cristals >= 0) player2cristal2.Visible = false;
+            else player2cristal2.Visible = true;
+
+            if (--player2Cristals >= 0) player2cristal3.Visible = false;
+            else player2cristal3.Visible = true;
+
+            if (--player2Cristals >= 0) player2cristal4.Visible = false;
+            else player2cristal4.Visible = true;
+
+            if (--player2Cristals >= 0) player2cristal5.Visible = false;
+            else player2cristal5.Visible = true;
+
+            if (--player2Cristals >= 0) player2cristal6.Visible = false;
+            else player2cristal6.Visible = true;
+
+            if (--player2Cristals >= 0) player2cristal7.Visible = false;
+            else player2cristal7.Visible = true;
+
+            if (--player2Cristals >= 0) player2cristal8.Visible = false;
+            else player2cristal8.Visible = true;
+
+            if (--player2Cristals >= 0) player2cristal9.Visible = false;
+            else player2cristal9.Visible = true;
+
+            if (--player2Cristals >= 0) player2cristal10.Visible = false;
+            else player2cristal10.Visible = true;
+        }
         private void gameStatsUpdate_Tick(object sender, EventArgs e)
         {            
             if (videoPlayer.VideoSource == null)
@@ -384,8 +448,10 @@ namespace CameraCardGame
             }
 
             //ManaCristals
-            player1ManaCristals.Text = game.player1.getManaCristals().ToString() + "/10";
-            player2ManaCristals.Text = game.player2.getManaCristals().ToString() + "/10";
+            player1ManaCristals.Text = game.player1.getManaCristals().ToString() + "/" + game.player1.getMaxManaCristals().ToString();
+            player2ManaCristals.Text = game.player2.getManaCristals().ToString() + "/" + game.player2.getMaxManaCristals().ToString(); ;
+
+            showPlayersCristals(game.player1.getManaCristals(), game.player2.getManaCristals());
 
             //Change button caption
             startGame.Text = "Resume";

@@ -84,6 +84,26 @@
             this.congratulation = new System.Windows.Forms.Label();
             this.yourTurnPlayer1 = new System.Windows.Forms.Label();
             this.yourTurnPlayer2 = new System.Windows.Forms.Label();
+            this.player1cristal1 = new System.Windows.Forms.PictureBox();
+            this.player1cristal2 = new System.Windows.Forms.PictureBox();
+            this.player1cristal3 = new System.Windows.Forms.PictureBox();
+            this.player1cristal4 = new System.Windows.Forms.PictureBox();
+            this.player1cristal5 = new System.Windows.Forms.PictureBox();
+            this.player1cristal7 = new System.Windows.Forms.PictureBox();
+            this.player1cristal8 = new System.Windows.Forms.PictureBox();
+            this.player1cristal10 = new System.Windows.Forms.PictureBox();
+            this.player1cristal6 = new System.Windows.Forms.PictureBox();
+            this.player1cristal9 = new System.Windows.Forms.PictureBox();
+            this.player2cristal9 = new System.Windows.Forms.PictureBox();
+            this.player2cristal6 = new System.Windows.Forms.PictureBox();
+            this.player2cristal10 = new System.Windows.Forms.PictureBox();
+            this.player2cristal8 = new System.Windows.Forms.PictureBox();
+            this.player2cristal7 = new System.Windows.Forms.PictureBox();
+            this.player2cristal5 = new System.Windows.Forms.PictureBox();
+            this.player2cristal4 = new System.Windows.Forms.PictureBox();
+            this.player2cristal3 = new System.Windows.Forms.PictureBox();
+            this.player2cristal2 = new System.Windows.Forms.PictureBox();
+            this.player2cristal1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.player2card4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player2card2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player2card1)).BeginInit();
@@ -102,6 +122,26 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player2card8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player1card0)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player1cristal1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player1cristal2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player1cristal3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player1cristal4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player1cristal5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player1cristal7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player1cristal8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player1cristal10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player1cristal6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player1cristal9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player2cristal9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player2cristal6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player2cristal10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player2cristal8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player2cristal7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player2cristal5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player2cristal4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player2cristal3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player2cristal2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player2cristal1)).BeginInit();
             this.SuspendLayout();
             // 
             // videoPlayer
@@ -808,6 +848,226 @@
             this.yourTurnPlayer2.Text = "Your turn";
             this.yourTurnPlayer2.Visible = false;
             // 
+            // player1cristal1
+            // 
+            this.player1cristal1.BackColor = System.Drawing.Color.Transparent;
+            this.player1cristal1.Image = ((System.Drawing.Image)(resources.GetObject("player1cristal1.Image")));
+            this.player1cristal1.Location = new System.Drawing.Point(814, 30);
+            this.player1cristal1.Name = "player1cristal1";
+            this.player1cristal1.Size = new System.Drawing.Size(22, 26);
+            this.player1cristal1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.player1cristal1.TabIndex = 62;
+            this.player1cristal1.TabStop = false;
+            // 
+            // player1cristal2
+            // 
+            this.player1cristal2.BackColor = System.Drawing.Color.Transparent;
+            this.player1cristal2.Image = ((System.Drawing.Image)(resources.GetObject("player1cristal2.Image")));
+            this.player1cristal2.Location = new System.Drawing.Point(836, 30);
+            this.player1cristal2.Name = "player1cristal2";
+            this.player1cristal2.Size = new System.Drawing.Size(22, 26);
+            this.player1cristal2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.player1cristal2.TabIndex = 63;
+            this.player1cristal2.TabStop = false;
+            // 
+            // player1cristal3
+            // 
+            this.player1cristal3.BackColor = System.Drawing.Color.Transparent;
+            this.player1cristal3.Image = ((System.Drawing.Image)(resources.GetObject("player1cristal3.Image")));
+            this.player1cristal3.Location = new System.Drawing.Point(857, 30);
+            this.player1cristal3.Name = "player1cristal3";
+            this.player1cristal3.Size = new System.Drawing.Size(22, 26);
+            this.player1cristal3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.player1cristal3.TabIndex = 64;
+            this.player1cristal3.TabStop = false;
+            // 
+            // player1cristal4
+            // 
+            this.player1cristal4.BackColor = System.Drawing.Color.Transparent;
+            this.player1cristal4.Image = ((System.Drawing.Image)(resources.GetObject("player1cristal4.Image")));
+            this.player1cristal4.Location = new System.Drawing.Point(878, 30);
+            this.player1cristal4.Name = "player1cristal4";
+            this.player1cristal4.Size = new System.Drawing.Size(22, 26);
+            this.player1cristal4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.player1cristal4.TabIndex = 65;
+            this.player1cristal4.TabStop = false;
+            // 
+            // player1cristal5
+            // 
+            this.player1cristal5.BackColor = System.Drawing.Color.Transparent;
+            this.player1cristal5.Image = ((System.Drawing.Image)(resources.GetObject("player1cristal5.Image")));
+            this.player1cristal5.Location = new System.Drawing.Point(899, 30);
+            this.player1cristal5.Name = "player1cristal5";
+            this.player1cristal5.Size = new System.Drawing.Size(22, 26);
+            this.player1cristal5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.player1cristal5.TabIndex = 66;
+            this.player1cristal5.TabStop = false;
+            // 
+            // player1cristal7
+            // 
+            this.player1cristal7.BackColor = System.Drawing.Color.Transparent;
+            this.player1cristal7.Image = ((System.Drawing.Image)(resources.GetObject("player1cristal7.Image")));
+            this.player1cristal7.Location = new System.Drawing.Point(941, 30);
+            this.player1cristal7.Name = "player1cristal7";
+            this.player1cristal7.Size = new System.Drawing.Size(22, 26);
+            this.player1cristal7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.player1cristal7.TabIndex = 67;
+            this.player1cristal7.TabStop = false;
+            // 
+            // player1cristal8
+            // 
+            this.player1cristal8.BackColor = System.Drawing.Color.Transparent;
+            this.player1cristal8.Image = ((System.Drawing.Image)(resources.GetObject("player1cristal8.Image")));
+            this.player1cristal8.Location = new System.Drawing.Point(963, 30);
+            this.player1cristal8.Name = "player1cristal8";
+            this.player1cristal8.Size = new System.Drawing.Size(22, 26);
+            this.player1cristal8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.player1cristal8.TabIndex = 68;
+            this.player1cristal8.TabStop = false;
+            // 
+            // player1cristal10
+            // 
+            this.player1cristal10.BackColor = System.Drawing.Color.Transparent;
+            this.player1cristal10.Image = ((System.Drawing.Image)(resources.GetObject("player1cristal10.Image")));
+            this.player1cristal10.Location = new System.Drawing.Point(1005, 30);
+            this.player1cristal10.Name = "player1cristal10";
+            this.player1cristal10.Size = new System.Drawing.Size(22, 26);
+            this.player1cristal10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.player1cristal10.TabIndex = 69;
+            this.player1cristal10.TabStop = false;
+            // 
+            // player1cristal6
+            // 
+            this.player1cristal6.BackColor = System.Drawing.Color.Transparent;
+            this.player1cristal6.Image = ((System.Drawing.Image)(resources.GetObject("player1cristal6.Image")));
+            this.player1cristal6.Location = new System.Drawing.Point(920, 30);
+            this.player1cristal6.Name = "player1cristal6";
+            this.player1cristal6.Size = new System.Drawing.Size(22, 26);
+            this.player1cristal6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.player1cristal6.TabIndex = 70;
+            this.player1cristal6.TabStop = false;
+            // 
+            // player1cristal9
+            // 
+            this.player1cristal9.BackColor = System.Drawing.Color.Transparent;
+            this.player1cristal9.Image = ((System.Drawing.Image)(resources.GetObject("player1cristal9.Image")));
+            this.player1cristal9.Location = new System.Drawing.Point(984, 30);
+            this.player1cristal9.Name = "player1cristal9";
+            this.player1cristal9.Size = new System.Drawing.Size(22, 26);
+            this.player1cristal9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.player1cristal9.TabIndex = 71;
+            this.player1cristal9.TabStop = false;
+            // 
+            // player2cristal9
+            // 
+            this.player2cristal9.BackColor = System.Drawing.Color.Transparent;
+            this.player2cristal9.Image = ((System.Drawing.Image)(resources.GetObject("player2cristal9.Image")));
+            this.player2cristal9.Location = new System.Drawing.Point(1005, 635);
+            this.player2cristal9.Name = "player2cristal9";
+            this.player2cristal9.Size = new System.Drawing.Size(22, 26);
+            this.player2cristal9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.player2cristal9.TabIndex = 81;
+            this.player2cristal9.TabStop = false;
+            // 
+            // player2cristal6
+            // 
+            this.player2cristal6.BackColor = System.Drawing.Color.Transparent;
+            this.player2cristal6.Image = ((System.Drawing.Image)(resources.GetObject("player2cristal6.Image")));
+            this.player2cristal6.Location = new System.Drawing.Point(941, 635);
+            this.player2cristal6.Name = "player2cristal6";
+            this.player2cristal6.Size = new System.Drawing.Size(22, 26);
+            this.player2cristal6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.player2cristal6.TabIndex = 80;
+            this.player2cristal6.TabStop = false;
+            // 
+            // player2cristal10
+            // 
+            this.player2cristal10.BackColor = System.Drawing.Color.Transparent;
+            this.player2cristal10.Image = ((System.Drawing.Image)(resources.GetObject("player2cristal10.Image")));
+            this.player2cristal10.Location = new System.Drawing.Point(1026, 635);
+            this.player2cristal10.Name = "player2cristal10";
+            this.player2cristal10.Size = new System.Drawing.Size(22, 26);
+            this.player2cristal10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.player2cristal10.TabIndex = 79;
+            this.player2cristal10.TabStop = false;
+            // 
+            // player2cristal8
+            // 
+            this.player2cristal8.BackColor = System.Drawing.Color.Transparent;
+            this.player2cristal8.Image = ((System.Drawing.Image)(resources.GetObject("player2cristal8.Image")));
+            this.player2cristal8.Location = new System.Drawing.Point(984, 635);
+            this.player2cristal8.Name = "player2cristal8";
+            this.player2cristal8.Size = new System.Drawing.Size(22, 26);
+            this.player2cristal8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.player2cristal8.TabIndex = 78;
+            this.player2cristal8.TabStop = false;
+            // 
+            // player2cristal7
+            // 
+            this.player2cristal7.BackColor = System.Drawing.Color.Transparent;
+            this.player2cristal7.Image = ((System.Drawing.Image)(resources.GetObject("player2cristal7.Image")));
+            this.player2cristal7.Location = new System.Drawing.Point(962, 635);
+            this.player2cristal7.Name = "player2cristal7";
+            this.player2cristal7.Size = new System.Drawing.Size(22, 26);
+            this.player2cristal7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.player2cristal7.TabIndex = 77;
+            this.player2cristal7.TabStop = false;
+            // 
+            // player2cristal5
+            // 
+            this.player2cristal5.BackColor = System.Drawing.Color.Transparent;
+            this.player2cristal5.Image = ((System.Drawing.Image)(resources.GetObject("player2cristal5.Image")));
+            this.player2cristal5.Location = new System.Drawing.Point(920, 635);
+            this.player2cristal5.Name = "player2cristal5";
+            this.player2cristal5.Size = new System.Drawing.Size(22, 26);
+            this.player2cristal5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.player2cristal5.TabIndex = 76;
+            this.player2cristal5.TabStop = false;
+            // 
+            // player2cristal4
+            // 
+            this.player2cristal4.BackColor = System.Drawing.Color.Transparent;
+            this.player2cristal4.Image = ((System.Drawing.Image)(resources.GetObject("player2cristal4.Image")));
+            this.player2cristal4.Location = new System.Drawing.Point(899, 635);
+            this.player2cristal4.Name = "player2cristal4";
+            this.player2cristal4.Size = new System.Drawing.Size(22, 26);
+            this.player2cristal4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.player2cristal4.TabIndex = 75;
+            this.player2cristal4.TabStop = false;
+            // 
+            // player2cristal3
+            // 
+            this.player2cristal3.BackColor = System.Drawing.Color.Transparent;
+            this.player2cristal3.Image = ((System.Drawing.Image)(resources.GetObject("player2cristal3.Image")));
+            this.player2cristal3.Location = new System.Drawing.Point(878, 635);
+            this.player2cristal3.Name = "player2cristal3";
+            this.player2cristal3.Size = new System.Drawing.Size(22, 26);
+            this.player2cristal3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.player2cristal3.TabIndex = 74;
+            this.player2cristal3.TabStop = false;
+            // 
+            // player2cristal2
+            // 
+            this.player2cristal2.BackColor = System.Drawing.Color.Transparent;
+            this.player2cristal2.Image = ((System.Drawing.Image)(resources.GetObject("player2cristal2.Image")));
+            this.player2cristal2.Location = new System.Drawing.Point(857, 635);
+            this.player2cristal2.Name = "player2cristal2";
+            this.player2cristal2.Size = new System.Drawing.Size(22, 26);
+            this.player2cristal2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.player2cristal2.TabIndex = 73;
+            this.player2cristal2.TabStop = false;
+            // 
+            // player2cristal1
+            // 
+            this.player2cristal1.BackColor = System.Drawing.Color.Transparent;
+            this.player2cristal1.Image = ((System.Drawing.Image)(resources.GetObject("player2cristal1.Image")));
+            this.player2cristal1.Location = new System.Drawing.Point(835, 635);
+            this.player2cristal1.Name = "player2cristal1";
+            this.player2cristal1.Size = new System.Drawing.Size(22, 26);
+            this.player2cristal1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.player2cristal1.TabIndex = 72;
+            this.player2cristal1.TabStop = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -816,6 +1076,26 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1200, 700);
             this.ControlBox = false;
+            this.Controls.Add(this.player2cristal9);
+            this.Controls.Add(this.player2cristal6);
+            this.Controls.Add(this.player2cristal10);
+            this.Controls.Add(this.player2cristal8);
+            this.Controls.Add(this.player2cristal7);
+            this.Controls.Add(this.player2cristal5);
+            this.Controls.Add(this.player2cristal4);
+            this.Controls.Add(this.player2cristal3);
+            this.Controls.Add(this.player2cristal2);
+            this.Controls.Add(this.player2cristal1);
+            this.Controls.Add(this.player1cristal9);
+            this.Controls.Add(this.player1cristal6);
+            this.Controls.Add(this.player1cristal10);
+            this.Controls.Add(this.player1cristal8);
+            this.Controls.Add(this.player1cristal7);
+            this.Controls.Add(this.player1cristal5);
+            this.Controls.Add(this.player1cristal4);
+            this.Controls.Add(this.player1cristal3);
+            this.Controls.Add(this.player1cristal2);
+            this.Controls.Add(this.player1cristal1);
             this.Controls.Add(this.yourTurnPlayer2);
             this.Controls.Add(this.yourTurnPlayer1);
             this.Controls.Add(this.congratulation);
@@ -894,6 +1174,26 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.player2card8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.player1card0)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player1cristal1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player1cristal2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player1cristal3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player1cristal4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player1cristal5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player1cristal7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player1cristal8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player1cristal10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player1cristal6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player1cristal9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player2cristal9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player2cristal6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player2cristal10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player2cristal8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player2cristal7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player2cristal5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player2cristal4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player2cristal3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player2cristal2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player2cristal1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -955,6 +1255,26 @@
         private System.Windows.Forms.Label congratulation;
         private System.Windows.Forms.Label yourTurnPlayer1;
         private System.Windows.Forms.Label yourTurnPlayer2;
+        private System.Windows.Forms.PictureBox player1cristal1;
+        private System.Windows.Forms.PictureBox player1cristal2;
+        private System.Windows.Forms.PictureBox player1cristal3;
+        private System.Windows.Forms.PictureBox player1cristal4;
+        private System.Windows.Forms.PictureBox player1cristal5;
+        private System.Windows.Forms.PictureBox player1cristal7;
+        private System.Windows.Forms.PictureBox player1cristal8;
+        private System.Windows.Forms.PictureBox player1cristal10;
+        private System.Windows.Forms.PictureBox player1cristal6;
+        private System.Windows.Forms.PictureBox player1cristal9;
+        private System.Windows.Forms.PictureBox player2cristal9;
+        private System.Windows.Forms.PictureBox player2cristal6;
+        private System.Windows.Forms.PictureBox player2cristal10;
+        private System.Windows.Forms.PictureBox player2cristal8;
+        private System.Windows.Forms.PictureBox player2cristal7;
+        private System.Windows.Forms.PictureBox player2cristal5;
+        private System.Windows.Forms.PictureBox player2cristal4;
+        private System.Windows.Forms.PictureBox player2cristal3;
+        private System.Windows.Forms.PictureBox player2cristal2;
+        private System.Windows.Forms.PictureBox player2cristal1;
     }
 }
 
