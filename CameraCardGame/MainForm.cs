@@ -195,7 +195,7 @@ namespace CameraCardGame
             {
                 cardPreviewHealth.Location = new Point(158, 394);
                 cardPreviewAttact.Location = new Point(17, 392);
-                cardPreviewManaCristals.Location = new Point(16, 196);
+                cardPreviewManaCristals.Location = new Point(16, 186);
             }
             else if (cardType == "rounded")
             {
@@ -421,7 +421,7 @@ namespace CameraCardGame
 
             player1.putCard(card);
 
-            card = new Card(8, "main_hero", "", 5, 0, 0, "false");
+            card = new Card(8, "main_hero", "", 30, 0, 0, "false");
             card.setOntableId(8);
 
             player2.putCard(card);
